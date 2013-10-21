@@ -1,0 +1,9 @@
+[Eagle]
+Version="06 02 00"
+Platform="Linux"
+
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
