@@ -8487,6 +8487,87 @@ We've spent an enormous amount of time creating and checking these footprints an
 &lt;br&gt;&lt;br&gt;
 &lt;b&gt;Licensing:&lt;/b&gt; CC v3.0 Share-Alike You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
 <packages>
+<package name="DUEMILANOVE_VIAS">
+<wire x1="1.27" y1="43.18" x2="3.81" y2="43.18" width="0.127" layer="51"/>
+<wire x1="3.81" y1="43.18" x2="3.81" y2="22.86" width="0.127" layer="51"/>
+<wire x1="3.81" y1="22.86" x2="1.27" y2="22.86" width="0.127" layer="51"/>
+<wire x1="1.27" y1="22.86" x2="1.27" y2="43.18" width="0.127" layer="51"/>
+<wire x1="1.27" y1="21.336" x2="3.81" y2="21.336" width="0.127" layer="51"/>
+<wire x1="3.81" y1="21.336" x2="3.81" y2="1.016" width="0.127" layer="51"/>
+<wire x1="3.81" y1="1.016" x2="1.27" y2="1.016" width="0.127" layer="51"/>
+<wire x1="1.27" y1="1.016" x2="1.27" y2="21.336" width="0.127" layer="51"/>
+<wire x1="49.53" y1="43.18" x2="52.07" y2="43.18" width="0.127" layer="51"/>
+<wire x1="52.07" y1="43.18" x2="52.07" y2="27.94" width="0.127" layer="51"/>
+<wire x1="52.07" y1="27.94" x2="49.53" y2="27.94" width="0.127" layer="51"/>
+<wire x1="49.53" y1="27.94" x2="49.53" y2="43.18" width="0.127" layer="51"/>
+<wire x1="49.53" y1="25.4" x2="52.07" y2="25.4" width="0.127" layer="51"/>
+<wire x1="52.07" y1="25.4" x2="52.07" y2="10.16" width="0.127" layer="51"/>
+<wire x1="52.07" y1="10.16" x2="49.53" y2="10.16" width="0.127" layer="51"/>
+<wire x1="49.53" y1="10.16" x2="49.53" y2="25.4" width="0.127" layer="51"/>
+<pad name="RES" x="50.8" y="11.43" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="3.3V" x="50.8" y="13.97" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="5V" x="50.8" y="16.51" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="GND@0" x="50.8" y="19.05" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="GND@1" x="50.8" y="21.59" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="VIN" x="50.8" y="24.13" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="A0" x="50.8" y="29.21" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="A1" x="50.8" y="31.75" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="A2" x="50.8" y="34.29" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="A3" x="50.8" y="36.83" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="A4" x="50.8" y="39.37" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="A5" x="50.8" y="41.91" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="RX" x="2.54" y="41.91" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="TX" x="2.54" y="39.37" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D2" x="2.54" y="36.83" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D3" x="2.54" y="34.29" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D4" x="2.54" y="31.75" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D5" x="2.54" y="29.21" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D6" x="2.54" y="26.67" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D7" x="2.54" y="24.13" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D8" x="2.54" y="20.066" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D9" x="2.54" y="17.526" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D10" x="2.54" y="14.986" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D11" x="2.54" y="12.446" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D12" x="2.54" y="9.906" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D13" x="2.54" y="7.366" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="GND@2" x="2.54" y="4.826" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="AREF" x="2.54" y="2.286" drill="1.016" diameter="1.8796" rot="R90"/>
+<text x="49.7332" y="19.558" size="1.016" layer="51" ratio="15" rot="R180">GND</text>
+<text x="49.7332" y="22.098" size="1.016" layer="51" ratio="15" rot="R180">GND</text>
+<text x="49.7332" y="17.018" size="1.016" layer="51" ratio="15" rot="R180">+5V</text>
+<text x="49.7332" y="11.938" size="1.016" layer="51" ratio="15" rot="R180">Reset</text>
+<text x="49.7332" y="24.638" size="1.016" layer="51" ratio="15" rot="R180">Vin</text>
+<text x="49.7332" y="14.478" size="1.016" layer="51" ratio="15" rot="R180">+3.3V</text>
+<text x="49.7332" y="29.718" size="1.016" layer="51" ratio="15" rot="R180">0</text>
+<text x="49.7332" y="32.258" size="1.016" layer="51" ratio="15" rot="R180">1</text>
+<text x="49.7332" y="34.798" size="1.016" layer="51" ratio="15" rot="R180">2</text>
+<text x="49.7332" y="37.338" size="1.016" layer="51" ratio="15" rot="R180">3</text>
+<text x="49.7332" y="39.878" size="1.016" layer="51" ratio="15" rot="R180">4</text>
+<text x="49.7332" y="42.418" size="1.016" layer="51" ratio="15" rot="R180">5</text>
+<text x="47.1932" y="39.497" size="1.016" layer="51" ratio="15" rot="R270">Analog In</text>
+<text x="3.81" y="4.318" size="1.016" layer="51" ratio="15">GND</text>
+<text x="3.81" y="6.858" size="1.016" layer="51" ratio="15">13</text>
+<text x="3.81" y="9.398" size="1.016" layer="51" ratio="15">12</text>
+<text x="3.81" y="11.938" size="1.016" layer="51" ratio="15">11</text>
+<text x="3.81" y="1.778" size="1.016" layer="51" ratio="15">Aref</text>
+<text x="3.81" y="14.478" size="1.016" layer="51" ratio="15">10</text>
+<text x="3.81" y="17.018" size="1.016" layer="51" ratio="15">9</text>
+<text x="3.81" y="19.558" size="1.016" layer="51" ratio="15">8</text>
+<text x="3.81" y="23.622" size="1.016" layer="51" ratio="15">7</text>
+<text x="3.81" y="26.162" size="1.016" layer="51" ratio="15">6</text>
+<text x="3.81" y="28.702" size="1.016" layer="51" ratio="15">5</text>
+<text x="3.81" y="31.242" size="1.016" layer="51" ratio="15">4</text>
+<text x="3.81" y="33.782" size="1.016" layer="51" ratio="15">3</text>
+<text x="3.81" y="36.322" size="1.016" layer="51" ratio="15">2</text>
+<text x="3.81" y="38.862" size="1.016" layer="51" ratio="15">TX</text>
+<text x="3.81" y="41.402" size="1.016" layer="51" ratio="15">RX</text>
+<text x="6.81" y="11.938" size="1.016" layer="51" ratio="15">PWM</text>
+<text x="6.81" y="14.478" size="1.016" layer="51" ratio="15">PWM</text>
+<text x="6.81" y="17.018" size="1.016" layer="51" ratio="15">PWM</text>
+<text x="6.81" y="26.162" size="1.016" layer="51" ratio="15">PWM</text>
+<text x="6.81" y="28.702" size="1.016" layer="51" ratio="15">PWM</text>
+<text x="6.81" y="33.782" size="1.016" layer="51" ratio="15">PWM</text>
+</package>
 <package name="DUEMILANOVE_SHIELD">
 <wire x1="2.54" y1="0" x2="9.5" y2="0" width="0.254" layer="51"/>
 <wire x1="9.5" y1="0" x2="21.7" y2="0" width="0.254" layer="51"/>
@@ -8511,10 +8592,10 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="3.81" y1="55.88" x2="3.81" y2="35.56" width="0.127" layer="51"/>
 <wire x1="3.81" y1="35.56" x2="1.27" y2="35.56" width="0.127" layer="51"/>
 <wire x1="1.27" y1="35.56" x2="1.27" y2="55.88" width="0.127" layer="51"/>
-<wire x1="1.27" y1="34.29" x2="3.81" y2="34.29" width="0.127" layer="51"/>
-<wire x1="3.81" y1="34.29" x2="3.81" y2="13.97" width="0.127" layer="51"/>
-<wire x1="3.81" y1="13.97" x2="1.27" y2="13.97" width="0.127" layer="51"/>
-<wire x1="1.27" y1="13.97" x2="1.27" y2="34.29" width="0.127" layer="51"/>
+<wire x1="1.27" y1="34.036" x2="3.81" y2="34.036" width="0.127" layer="51"/>
+<wire x1="3.81" y1="34.036" x2="3.81" y2="13.716" width="0.127" layer="51"/>
+<wire x1="3.81" y1="13.716" x2="1.27" y2="13.716" width="0.127" layer="51"/>
+<wire x1="1.27" y1="13.716" x2="1.27" y2="34.036" width="0.127" layer="51"/>
 <wire x1="49.53" y1="22.86" x2="52.07" y2="22.86" width="0.127" layer="51"/>
 <wire x1="52.07" y1="22.86" x2="52.07" y2="38.1" width="0.127" layer="51"/>
 <wire x1="52.07" y1="38.1" x2="49.53" y2="38.1" width="0.127" layer="51"/>
@@ -8547,14 +8628,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pad name="D5" x="2.54" y="41.91" drill="1.016" diameter="1.8796" rot="R90"/>
 <pad name="D6" x="2.54" y="39.37" drill="1.016" diameter="1.8796" rot="R90"/>
 <pad name="D7" x="2.54" y="36.83" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D8" x="2.54" y="33.02" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D9" x="2.54" y="30.48" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D10" x="2.54" y="27.94" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D11" x="2.54" y="25.4" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D12" x="2.54" y="22.86" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D13" x="2.54" y="20.32" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="GND@2" x="2.54" y="17.78" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="AREF" x="2.54" y="15.24" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D8" x="2.54" y="32.766" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D9" x="2.54" y="30.226" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D10" x="2.54" y="27.686" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D11" x="2.54" y="25.146" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D12" x="2.54" y="22.606" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D13" x="2.54" y="20.066" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="GND@2" x="2.54" y="17.526" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="AREF" x="2.54" y="14.986" drill="1.016" diameter="1.8796" rot="R90"/>
 <text x="49.4157" y="32.258" size="1.016" layer="21" ratio="15" rot="R180">GND</text>
 <text x="49.4157" y="34.798" size="1.016" layer="21" ratio="15" rot="R180">GND</text>
 <text x="49.4157" y="29.718" size="1.016" layer="21" ratio="15" rot="R180">+5V</text>
@@ -8568,14 +8649,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="49.4157" y="52.578" size="1.016" layer="21" ratio="15" rot="R180">4</text>
 <text x="49.4157" y="55.118" size="1.016" layer="21" ratio="15" rot="R180">5</text>
 <text x="46.8757" y="52.197" size="1.016" layer="21" ratio="15" rot="R270">Analog In</text>
-<text x="3.81" y="17.272" size="1.016" layer="21" ratio="15">GND</text>
-<text x="3.81" y="19.812" size="1.016" layer="21" ratio="15">13</text>
-<text x="3.81" y="22.352" size="1.016" layer="21" ratio="15">12</text>
-<text x="3.81" y="24.892" size="1.016" layer="21" ratio="15">11</text>
-<text x="3.81" y="14.732" size="1.016" layer="21" ratio="15">AREF</text>
-<text x="3.81" y="27.432" size="1.016" layer="21" ratio="15">10</text>
-<text x="3.81" y="29.972" size="1.016" layer="21" ratio="15">9</text>
-<text x="3.81" y="32.512" size="1.016" layer="21" ratio="15">8</text>
+<text x="3.81" y="17.018" size="1.016" layer="21" ratio="15">GND</text>
+<text x="3.81" y="19.558" size="1.016" layer="21" ratio="15">13</text>
+<text x="3.81" y="22.098" size="1.016" layer="21" ratio="15">12</text>
+<text x="3.81" y="24.638" size="1.016" layer="21" ratio="15">11</text>
+<text x="3.81" y="14.478" size="1.016" layer="21" ratio="15">AREF</text>
+<text x="3.81" y="27.178" size="1.016" layer="21" ratio="15">10</text>
+<text x="3.81" y="29.718" size="1.016" layer="21" ratio="15">9</text>
+<text x="3.81" y="32.258" size="1.016" layer="21" ratio="15">8</text>
 <text x="3.81" y="36.322" size="1.016" layer="21" ratio="15">7</text>
 <text x="3.81" y="38.862" size="1.016" layer="21" ratio="15">6</text>
 <text x="3.81" y="41.402" size="1.016" layer="21" ratio="15">5</text>
@@ -8586,87 +8667,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="3.81" y="54.102" size="1.016" layer="21" ratio="15">RX</text>
 <hole x="45.72" y="57.15" drill="3.302"/>
 <hole x="2.54" y="6.35" drill="3.302"/>
-</package>
-<package name="DUEMILANOVE_VIAS">
-<wire x1="1.27" y1="43.18" x2="3.81" y2="43.18" width="0.127" layer="51"/>
-<wire x1="3.81" y1="43.18" x2="3.81" y2="22.86" width="0.127" layer="51"/>
-<wire x1="3.81" y1="22.86" x2="1.27" y2="22.86" width="0.127" layer="51"/>
-<wire x1="1.27" y1="22.86" x2="1.27" y2="43.18" width="0.127" layer="51"/>
-<wire x1="1.27" y1="21.59" x2="3.81" y2="21.59" width="0.127" layer="51"/>
-<wire x1="3.81" y1="21.59" x2="3.81" y2="1.27" width="0.127" layer="51"/>
-<wire x1="3.81" y1="1.27" x2="1.27" y2="1.27" width="0.127" layer="51"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="21.59" width="0.127" layer="51"/>
-<wire x1="49.53" y1="43.18" x2="52.07" y2="43.18" width="0.127" layer="51"/>
-<wire x1="52.07" y1="43.18" x2="52.07" y2="27.94" width="0.127" layer="51"/>
-<wire x1="52.07" y1="27.94" x2="49.53" y2="27.94" width="0.127" layer="51"/>
-<wire x1="49.53" y1="27.94" x2="49.53" y2="43.18" width="0.127" layer="51"/>
-<wire x1="49.53" y1="25.4" x2="52.07" y2="25.4" width="0.127" layer="51"/>
-<wire x1="52.07" y1="25.4" x2="52.07" y2="10.16" width="0.127" layer="51"/>
-<wire x1="52.07" y1="10.16" x2="49.53" y2="10.16" width="0.127" layer="51"/>
-<wire x1="49.53" y1="10.16" x2="49.53" y2="25.4" width="0.127" layer="51"/>
-<pad name="RES" x="50.8" y="11.43" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="3.3V" x="50.8" y="13.97" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="5V" x="50.8" y="16.51" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="GND@0" x="50.8" y="19.05" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="GND@1" x="50.8" y="21.59" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="VIN" x="50.8" y="24.13" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="A0" x="50.8" y="29.21" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="A1" x="50.8" y="31.75" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="A2" x="50.8" y="34.29" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="A3" x="50.8" y="36.83" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="A4" x="50.8" y="39.37" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="A5" x="50.8" y="41.91" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="RX" x="2.54" y="41.91" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="TX" x="2.54" y="39.37" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D2" x="2.54" y="36.83" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D3" x="2.54" y="34.29" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D4" x="2.54" y="31.75" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D5" x="2.54" y="29.21" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D6" x="2.54" y="26.67" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D7" x="2.54" y="24.13" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D8" x="2.54" y="20.32" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D9" x="2.54" y="17.78" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D10" x="2.54" y="15.24" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D11" x="2.54" y="12.7" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D12" x="2.54" y="10.16" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D13" x="2.54" y="7.62" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="GND@2" x="2.54" y="5.08" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="AREF" x="2.54" y="2.54" drill="1.016" diameter="1.8796" rot="R90"/>
-<text x="49.7332" y="19.558" size="1.016" layer="51" ratio="15" rot="R180">GND</text>
-<text x="49.7332" y="22.098" size="1.016" layer="51" ratio="15" rot="R180">GND</text>
-<text x="49.7332" y="17.018" size="1.016" layer="51" ratio="15" rot="R180">+5V</text>
-<text x="49.7332" y="11.938" size="1.016" layer="51" ratio="15" rot="R180">Reset</text>
-<text x="49.7332" y="24.638" size="1.016" layer="51" ratio="15" rot="R180">Vin</text>
-<text x="49.7332" y="14.478" size="1.016" layer="51" ratio="15" rot="R180">+3.3V</text>
-<text x="49.7332" y="29.718" size="1.016" layer="51" ratio="15" rot="R180">0</text>
-<text x="49.7332" y="32.258" size="1.016" layer="51" ratio="15" rot="R180">1</text>
-<text x="49.7332" y="34.798" size="1.016" layer="51" ratio="15" rot="R180">2</text>
-<text x="49.7332" y="37.338" size="1.016" layer="51" ratio="15" rot="R180">3</text>
-<text x="49.7332" y="39.878" size="1.016" layer="51" ratio="15" rot="R180">4</text>
-<text x="49.7332" y="42.418" size="1.016" layer="51" ratio="15" rot="R180">5</text>
-<text x="47.1932" y="39.497" size="1.016" layer="51" ratio="15" rot="R270">Analog In</text>
-<text x="3.81" y="4.572" size="1.016" layer="51" ratio="15">GND</text>
-<text x="3.81" y="7.112" size="1.016" layer="51" ratio="15">13</text>
-<text x="3.81" y="9.652" size="1.016" layer="51" ratio="15">12</text>
-<text x="3.81" y="12.192" size="1.016" layer="51" ratio="15">11</text>
-<text x="3.81" y="2.032" size="1.016" layer="51" ratio="15">Aref</text>
-<text x="3.81" y="14.732" size="1.016" layer="51" ratio="15">10</text>
-<text x="3.81" y="17.272" size="1.016" layer="51" ratio="15">9</text>
-<text x="3.81" y="19.812" size="1.016" layer="51" ratio="15">8</text>
-<text x="3.81" y="23.622" size="1.016" layer="51" ratio="15">7</text>
-<text x="3.81" y="26.162" size="1.016" layer="51" ratio="15">6</text>
-<text x="3.81" y="28.702" size="1.016" layer="51" ratio="15">5</text>
-<text x="3.81" y="31.242" size="1.016" layer="51" ratio="15">4</text>
-<text x="3.81" y="33.782" size="1.016" layer="51" ratio="15">3</text>
-<text x="3.81" y="36.322" size="1.016" layer="51" ratio="15">2</text>
-<text x="3.81" y="38.862" size="1.016" layer="51" ratio="15">TX</text>
-<text x="3.81" y="41.402" size="1.016" layer="51" ratio="15">RX</text>
-<text x="6.81" y="12.192" size="1.016" layer="51" ratio="15">PWM</text>
-<text x="6.81" y="14.732" size="1.016" layer="51" ratio="15">PWM</text>
-<text x="6.81" y="17.272" size="1.016" layer="51" ratio="15">PWM</text>
-<text x="6.81" y="26.162" size="1.016" layer="51" ratio="15">PWM</text>
-<text x="6.81" y="28.702" size="1.016" layer="51" ratio="15">PWM</text>
-<text x="6.81" y="33.782" size="1.016" layer="51" ratio="15">PWM</text>
 </package>
 <package name="DUEMILANOVE_SHIELD_NOHOLES">
 <wire x1="2.54" y1="0" x2="9.5" y2="0" width="0.254" layer="51"/>
@@ -8692,10 +8692,10 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="3.81" y1="55.88" x2="3.81" y2="35.56" width="0.127" layer="51"/>
 <wire x1="3.81" y1="35.56" x2="1.27" y2="35.56" width="0.127" layer="51"/>
 <wire x1="1.27" y1="35.56" x2="1.27" y2="55.88" width="0.127" layer="51"/>
-<wire x1="1.27" y1="34.29" x2="3.81" y2="34.29" width="0.127" layer="51"/>
-<wire x1="3.81" y1="34.29" x2="3.81" y2="13.97" width="0.127" layer="51"/>
-<wire x1="3.81" y1="13.97" x2="1.27" y2="13.97" width="0.127" layer="51"/>
-<wire x1="1.27" y1="13.97" x2="1.27" y2="34.29" width="0.127" layer="51"/>
+<wire x1="1.27" y1="34.036" x2="3.81" y2="34.036" width="0.127" layer="51"/>
+<wire x1="3.81" y1="34.036" x2="3.81" y2="13.716" width="0.127" layer="51"/>
+<wire x1="3.81" y1="13.716" x2="1.27" y2="13.716" width="0.127" layer="51"/>
+<wire x1="1.27" y1="13.716" x2="1.27" y2="34.036" width="0.127" layer="51"/>
 <wire x1="49.53" y1="55.88" x2="52.07" y2="55.88" width="0.127" layer="51"/>
 <wire x1="52.07" y1="55.88" x2="52.07" y2="40.64" width="0.127" layer="51"/>
 <wire x1="52.07" y1="40.64" x2="49.53" y2="40.64" width="0.127" layer="51"/>
@@ -8724,14 +8724,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pad name="D5" x="2.54" y="41.91" drill="1.016" diameter="1.8796" rot="R90"/>
 <pad name="D6" x="2.54" y="39.37" drill="1.016" diameter="1.8796" rot="R90"/>
 <pad name="D7" x="2.54" y="36.83" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D8" x="2.54" y="33.02" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D9" x="2.54" y="30.48" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D10" x="2.54" y="27.94" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D11" x="2.54" y="25.4" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D12" x="2.54" y="22.86" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D13" x="2.54" y="20.32" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="GND@2" x="2.54" y="17.78" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="AREF" x="2.54" y="15.24" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D8" x="2.54" y="32.766" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D9" x="2.54" y="30.226" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D10" x="2.54" y="27.686" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D11" x="2.54" y="25.146" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D12" x="2.54" y="22.606" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D13" x="2.54" y="20.066" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="GND@2" x="2.54" y="17.526" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="AREF" x="2.54" y="14.986" drill="1.016" diameter="1.8796" rot="R90"/>
 <text x="49.149" y="34.798" size="1.016" layer="21" ratio="15" rot="R180">GND</text>
 <text x="49.149" y="29.718" size="1.016" layer="21" ratio="15" rot="R180">5V</text>
 <text x="49.149" y="24.638" size="1.016" layer="21" ratio="15" rot="R180">RST</text>
@@ -8744,14 +8744,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="49.1617" y="52.578" size="1.016" layer="21" ratio="15" rot="R180">4</text>
 <text x="49.1617" y="55.118" size="1.016" layer="21" ratio="15" rot="R180">5</text>
 <text x="46.8757" y="52.197" size="1.016" layer="21" ratio="15" rot="R270">Analog In</text>
-<text x="4.064" y="17.272" size="1.016" layer="21" ratio="15">GND</text>
-<text x="4.064" y="19.812" size="1.016" layer="21" ratio="15">13</text>
-<text x="4.064" y="22.352" size="1.016" layer="21" ratio="15">12</text>
-<text x="4.064" y="24.892" size="1.016" layer="21" ratio="15">11</text>
-<text x="4.064" y="14.732" size="1.016" layer="21" ratio="15">AREF</text>
-<text x="4.064" y="27.432" size="1.016" layer="21" ratio="15">10</text>
-<text x="4.064" y="29.972" size="1.016" layer="21" ratio="15">9</text>
-<text x="4.064" y="32.512" size="1.016" layer="21" ratio="15">8</text>
+<text x="4.064" y="17.018" size="1.016" layer="21" ratio="15">GND</text>
+<text x="4.064" y="19.558" size="1.016" layer="21" ratio="15">13</text>
+<text x="4.064" y="22.098" size="1.016" layer="21" ratio="15">12</text>
+<text x="4.064" y="24.638" size="1.016" layer="21" ratio="15">11</text>
+<text x="4.064" y="14.478" size="1.016" layer="21" ratio="15">AREF</text>
+<text x="4.064" y="27.178" size="1.016" layer="21" ratio="15">10</text>
+<text x="4.064" y="29.718" size="1.016" layer="21" ratio="15">9</text>
+<text x="4.064" y="32.258" size="1.016" layer="21" ratio="15">8</text>
 <text x="4.064" y="36.322" size="1.016" layer="21" ratio="15">7</text>
 <text x="4.064" y="38.862" size="1.016" layer="21" ratio="15">6</text>
 <text x="4.064" y="41.402" size="1.016" layer="21" ratio="15">5</text>
@@ -8806,14 +8806,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pad name="D5" x="2.54" y="41.91" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
 <pad name="D6" x="2.54" y="39.37" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
 <pad name="D7" x="2.54" y="36.83" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
-<pad name="D8" x="2.54" y="33.02" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
-<pad name="D9" x="2.54" y="30.48" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
-<pad name="D10" x="2.54" y="27.94" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
-<pad name="D11" x="2.54" y="25.4" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
-<pad name="D12" x="2.54" y="22.86" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
-<pad name="D13" x="2.54" y="20.32" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
-<pad name="GND@2" x="2.54" y="17.78" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
-<pad name="AREF" x="2.54" y="15.24" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
+<pad name="D8" x="2.54" y="32.766" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
+<pad name="D9" x="2.54" y="30.226" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
+<pad name="D10" x="2.54" y="27.686" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
+<pad name="D11" x="2.54" y="25.146" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
+<pad name="D12" x="2.54" y="22.606" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
+<pad name="D13" x="2.54" y="20.066" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
+<pad name="GND@2" x="2.54" y="17.526" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
+<pad name="AREF" x="2.54" y="14.986" drill="1.016" diameter="1.8796" shape="long" rot="R180"/>
 <text x="49.4157" y="32.258" size="1.016" layer="21" ratio="15" rot="R180">GND</text>
 <text x="49.4157" y="34.798" size="1.016" layer="21" ratio="15" rot="R180">GND</text>
 <text x="49.4157" y="29.718" size="1.016" layer="21" ratio="15" rot="R180">+5V</text>
@@ -8827,14 +8827,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="49.4157" y="52.578" size="1.016" layer="21" ratio="15" rot="R180">4</text>
 <text x="49.4157" y="55.118" size="1.016" layer="21" ratio="15" rot="R180">5</text>
 <text x="46.8757" y="52.197" size="1.016" layer="21" ratio="15" rot="R270">Analog In</text>
-<text x="3.81" y="17.272" size="1.016" layer="21" ratio="15">GND</text>
-<text x="3.81" y="19.812" size="1.016" layer="21" ratio="15">13</text>
-<text x="3.81" y="22.352" size="1.016" layer="21" ratio="15">12</text>
-<text x="3.81" y="24.892" size="1.016" layer="21" ratio="15">11</text>
-<text x="3.81" y="14.732" size="1.016" layer="21" ratio="15">Aref</text>
-<text x="3.81" y="27.432" size="1.016" layer="21" ratio="15">10</text>
-<text x="3.81" y="29.972" size="1.016" layer="21" ratio="15">9</text>
-<text x="3.81" y="32.512" size="1.016" layer="21" ratio="15">8</text>
+<text x="3.81" y="17.018" size="1.016" layer="21" ratio="15">GND</text>
+<text x="3.81" y="19.558" size="1.016" layer="21" ratio="15">13</text>
+<text x="3.81" y="22.098" size="1.016" layer="21" ratio="15">12</text>
+<text x="3.81" y="24.638" size="1.016" layer="21" ratio="15">11</text>
+<text x="3.81" y="14.478" size="1.016" layer="21" ratio="15">Aref</text>
+<text x="3.81" y="27.178" size="1.016" layer="21" ratio="15">10</text>
+<text x="3.81" y="29.718" size="1.016" layer="21" ratio="15">9</text>
+<text x="3.81" y="32.258" size="1.016" layer="21" ratio="15">8</text>
 <text x="3.81" y="36.322" size="1.016" layer="21" ratio="15">7</text>
 <text x="3.81" y="38.862" size="1.016" layer="21" ratio="15">6</text>
 <text x="3.81" y="41.402" size="1.016" layer="21" ratio="15">5</text>
@@ -8870,10 +8870,10 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="3.81" y1="55.88" x2="3.81" y2="35.56" width="0.127" layer="51"/>
 <wire x1="3.81" y1="35.56" x2="1.27" y2="35.56" width="0.127" layer="51"/>
 <wire x1="1.27" y1="35.56" x2="1.27" y2="55.88" width="0.127" layer="51"/>
-<wire x1="1.27" y1="34.29" x2="3.81" y2="34.29" width="0.127" layer="51"/>
-<wire x1="3.81" y1="34.29" x2="3.81" y2="13.97" width="0.127" layer="51"/>
-<wire x1="3.81" y1="13.97" x2="1.27" y2="13.97" width="0.127" layer="51"/>
-<wire x1="1.27" y1="13.97" x2="1.27" y2="34.29" width="0.127" layer="51"/>
+<wire x1="1.27" y1="34.036" x2="3.81" y2="34.036" width="0.127" layer="51"/>
+<wire x1="3.81" y1="34.036" x2="3.81" y2="13.716" width="0.127" layer="51"/>
+<wire x1="3.81" y1="13.716" x2="1.27" y2="13.716" width="0.127" layer="51"/>
+<wire x1="1.27" y1="13.716" x2="1.27" y2="34.036" width="0.127" layer="51"/>
 <wire x1="49.53" y1="38.1" x2="52.07" y2="38.1" width="0.127" layer="51"/>
 <wire x1="52.07" y1="38.1" x2="52.07" y2="22.86" width="0.127" layer="51"/>
 <wire x1="52.07" y1="22.86" x2="49.53" y2="22.86" width="0.127" layer="51"/>
@@ -8906,14 +8906,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pad name="D5" x="2.54" y="41.91" drill="1.016" diameter="1.8796" rot="R90"/>
 <pad name="D6" x="2.54" y="39.37" drill="1.016" diameter="1.8796" rot="R90"/>
 <pad name="D7" x="2.54" y="36.83" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D8" x="2.54" y="33.02" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D9" x="2.54" y="30.48" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D10" x="2.54" y="27.94" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D11" x="2.54" y="25.4" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D12" x="2.54" y="22.86" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D13" x="2.54" y="20.32" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="GND@2" x="2.54" y="17.78" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="AREF" x="2.54" y="15.24" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D8" x="2.54" y="32.766" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D9" x="2.54" y="30.226" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D10" x="2.54" y="27.686" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D11" x="2.54" y="25.146" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D12" x="2.54" y="22.606" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D13" x="2.54" y="20.066" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="GND@2" x="2.54" y="17.526" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="AREF" x="2.54" y="14.986" drill="1.016" diameter="1.8796" rot="R90"/>
 <text x="49.2887" y="32.258" size="1.016" layer="51" ratio="15" rot="R180">GND</text>
 <text x="49.2887" y="34.798" size="1.016" layer="51" ratio="15" rot="R180">GND</text>
 <text x="49.2887" y="29.718" size="1.016" layer="51" ratio="15" rot="R180">5V</text>
@@ -8927,14 +8927,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="49.2887" y="52.578" size="1.016" layer="51" ratio="15" rot="R180">4</text>
 <text x="49.2887" y="55.118" size="1.016" layer="51" ratio="15" rot="R180">5</text>
 <text x="46.7487" y="52.197" size="1.016" layer="51" ratio="15" rot="R270">Analog In</text>
-<text x="3.937" y="17.272" size="1.016" layer="51" ratio="15">GND</text>
-<text x="3.937" y="19.812" size="1.016" layer="51" ratio="15">13</text>
-<text x="3.937" y="22.352" size="1.016" layer="51" ratio="15">12</text>
-<text x="3.937" y="24.892" size="1.016" layer="51" ratio="15">11</text>
-<text x="3.937" y="14.732" size="1.016" layer="51" ratio="15">AREF</text>
-<text x="3.937" y="27.432" size="1.016" layer="51" ratio="15">10</text>
-<text x="3.937" y="29.972" size="1.016" layer="51" ratio="15">9</text>
-<text x="3.937" y="32.512" size="1.016" layer="51" ratio="15">8</text>
+<text x="3.937" y="17.018" size="1.016" layer="51" ratio="15">GND</text>
+<text x="3.937" y="19.558" size="1.016" layer="51" ratio="15">13</text>
+<text x="3.937" y="22.098" size="1.016" layer="51" ratio="15">12</text>
+<text x="3.937" y="24.638" size="1.016" layer="51" ratio="15">11</text>
+<text x="3.937" y="14.478" size="1.016" layer="51" ratio="15">AREF</text>
+<text x="3.937" y="27.178" size="1.016" layer="51" ratio="15">10</text>
+<text x="3.937" y="29.718" size="1.016" layer="51" ratio="15">9</text>
+<text x="3.937" y="32.258" size="1.016" layer="51" ratio="15">8</text>
 <text x="3.937" y="36.322" size="1.016" layer="51" ratio="15">7</text>
 <text x="3.937" y="38.862" size="1.016" layer="51" ratio="15">6</text>
 <text x="3.937" y="41.402" size="1.016" layer="51" ratio="15">5</text>
@@ -8970,10 +8970,10 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="3.81" y1="55.88" x2="3.81" y2="35.56" width="0.127" layer="51"/>
 <wire x1="3.81" y1="35.56" x2="1.27" y2="35.56" width="0.127" layer="51"/>
 <wire x1="1.27" y1="35.56" x2="1.27" y2="55.88" width="0.127" layer="51"/>
-<wire x1="1.27" y1="34.29" x2="3.81" y2="34.29" width="0.127" layer="51"/>
-<wire x1="3.81" y1="34.29" x2="3.81" y2="13.97" width="0.127" layer="51"/>
-<wire x1="3.81" y1="13.97" x2="1.27" y2="13.97" width="0.127" layer="51"/>
-<wire x1="1.27" y1="13.97" x2="1.27" y2="34.29" width="0.127" layer="51"/>
+<wire x1="1.27" y1="34.036" x2="3.81" y2="34.036" width="0.127" layer="51"/>
+<wire x1="3.81" y1="34.036" x2="3.81" y2="13.716" width="0.127" layer="51"/>
+<wire x1="3.81" y1="13.716" x2="1.27" y2="13.716" width="0.127" layer="51"/>
+<wire x1="1.27" y1="13.716" x2="1.27" y2="34.036" width="0.127" layer="51"/>
 <wire x1="49.53" y1="55.88" x2="52.07" y2="55.88" width="0.127" layer="51"/>
 <wire x1="52.07" y1="55.88" x2="52.07" y2="40.64" width="0.127" layer="51"/>
 <wire x1="52.07" y1="40.64" x2="49.53" y2="40.64" width="0.127" layer="51"/>
@@ -9002,14 +9002,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <pad name="D5" x="2.54" y="41.91" drill="1.016" diameter="1.8796" rot="R90"/>
 <pad name="D6" x="2.54" y="39.37" drill="1.016" diameter="1.8796" rot="R90"/>
 <pad name="D7" x="2.54" y="36.83" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D8" x="2.54" y="33.02" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D9" x="2.54" y="30.48" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D10" x="2.54" y="27.94" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D11" x="2.54" y="25.4" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D12" x="2.54" y="22.86" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="D13" x="2.54" y="20.32" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="GND@2" x="2.54" y="17.78" drill="1.016" diameter="1.8796" rot="R90"/>
-<pad name="AREF" x="2.54" y="15.24" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D8" x="2.54" y="32.766" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D9" x="2.54" y="30.226" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D10" x="2.54" y="27.686" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D11" x="2.54" y="25.146" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D12" x="2.54" y="22.606" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="D13" x="2.54" y="20.066" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="GND@2" x="2.54" y="17.526" drill="1.016" diameter="1.8796" rot="R90"/>
+<pad name="AREF" x="2.54" y="14.986" drill="1.016" diameter="1.8796" rot="R90"/>
 <text x="49.149" y="34.798" size="1.016" layer="51" ratio="15" rot="R180">GND</text>
 <text x="49.149" y="29.718" size="1.016" layer="51" ratio="15" rot="R180">5V</text>
 <text x="49.149" y="24.638" size="1.016" layer="51" ratio="15" rot="R180">RST</text>
@@ -9022,14 +9022,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="49.1617" y="52.578" size="1.016" layer="51" ratio="15" rot="R180">4</text>
 <text x="49.1617" y="55.118" size="1.016" layer="51" ratio="15" rot="R180">5</text>
 <text x="46.8757" y="52.197" size="1.016" layer="51" ratio="15" rot="R270">Analog In</text>
-<text x="4.064" y="17.272" size="1.016" layer="51" ratio="15">GND</text>
-<text x="4.064" y="19.812" size="1.016" layer="51" ratio="15">13</text>
-<text x="4.064" y="22.352" size="1.016" layer="51" ratio="15">12</text>
-<text x="4.064" y="24.892" size="1.016" layer="51" ratio="15">11</text>
-<text x="4.064" y="14.732" size="1.016" layer="51" ratio="15">AREF</text>
-<text x="4.064" y="27.432" size="1.016" layer="51" ratio="15">10</text>
-<text x="4.064" y="29.972" size="1.016" layer="51" ratio="15">9</text>
-<text x="4.064" y="32.512" size="1.016" layer="51" ratio="15">8</text>
+<text x="4.064" y="17.018" size="1.016" layer="51" ratio="15">GND</text>
+<text x="4.064" y="19.558" size="1.016" layer="51" ratio="15">13</text>
+<text x="4.064" y="22.098" size="1.016" layer="51" ratio="15">12</text>
+<text x="4.064" y="24.638" size="1.016" layer="51" ratio="15">11</text>
+<text x="4.064" y="14.478" size="1.016" layer="51" ratio="15">AREF</text>
+<text x="4.064" y="27.178" size="1.016" layer="51" ratio="15">10</text>
+<text x="4.064" y="29.718" size="1.016" layer="51" ratio="15">9</text>
+<text x="4.064" y="32.258" size="1.016" layer="51" ratio="15">8</text>
 <text x="4.064" y="36.322" size="1.016" layer="51" ratio="15">7</text>
 <text x="4.064" y="38.862" size="1.016" layer="51" ratio="15">6</text>
 <text x="4.064" y="41.402" size="1.016" layer="51" ratio="15">5</text>
@@ -9460,6 +9460,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <part name="SUPPLY41" library="SparkFun-Aesthetics" deviceset="5V" device=""/>
 <part name="SUPPLY42" library="SparkFun-Aesthetics" deviceset="3.3V" device=""/>
 <part name="GND34" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="C19" library="rcl" deviceset="C-EU" device="C1206K" value="10uF"/>
+<part name="GND44" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
+<part name="R9" library="rcl" deviceset="R-US_" device="R0603" value="1k"/>
 </parts>
 <sheets>
 <sheet>
@@ -9471,13 +9474,13 @@ We've spent an enormous amount of time creating and checking these footprints an
 <attribute name="VALUE" x="76.2" y="2.54" size="1.778" layer="96"/>
 </instance>
 <instance part="IC1" gate="G$1" x="76.2" y="-22.86"/>
-<instance part="IC2" gate="G$1" x="274.32" y="-35.56"/>
+<instance part="IC2" gate="G$1" x="287.02" y="-35.56"/>
 <instance part="D1" gate="G$1" x="101.6" y="0" smashed="yes">
 <attribute name="NAME" x="99.06" y="5.5626" size="1.778" layer="95"/>
 <attribute name="VALUE" x="99.06" y="2.7686" size="1.778" layer="96"/>
 </instance>
 <instance part="SUPPLY1" gate="G$1" x="20.32" y="2.54"/>
-<instance part="SUPPLY3" gate="G$1" x="259.08" y="-30.48"/>
+<instance part="SUPPLY3" gate="G$1" x="271.78" y="-30.48"/>
 <instance part="GND1" gate="1" x="96.52" y="-40.64"/>
 <instance part="R3" gate="G$1" x="15.24" y="-30.48" rot="R90"/>
 <instance part="C6" gate="G$1" x="45.72" y="-5.08"/>
@@ -9507,26 +9510,26 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="GND11" gate="1" x="116.84" y="-15.24"/>
 <instance part="GND12" gate="1" x="127" y="-15.24"/>
 <instance part="GND13" gate="1" x="137.16" y="-15.24"/>
-<instance part="Q1" gate="G$1" x="160.02" y="-15.24" smashed="yes">
-<attribute name="NAME" x="165.1" y="-15.24" size="1.778" layer="95"/>
-<attribute name="VALUE" x="165.1" y="-17.78" size="1.778" layer="96"/>
+<instance part="Q1" gate="G$1" x="172.72" y="-15.24" smashed="yes">
+<attribute name="NAME" x="177.8" y="-15.24" size="1.778" layer="95"/>
+<attribute name="VALUE" x="177.8" y="-17.78" size="1.778" layer="96"/>
 </instance>
-<instance part="Q2" gate="G$1" x="165.1" y="-2.54" smashed="yes" rot="R90">
-<attribute name="VALUE" x="168.91" y="-6.35" size="1.778" layer="96"/>
-<attribute name="NAME" x="168.91" y="-3.81" size="1.778" layer="95"/>
+<instance part="Q2" gate="G$1" x="177.8" y="-2.54" smashed="yes" rot="R90">
+<attribute name="VALUE" x="181.61" y="-6.35" size="1.778" layer="96"/>
+<attribute name="NAME" x="181.61" y="-3.81" size="1.778" layer="95"/>
 </instance>
-<instance part="R5" gate="G$1" x="154.94" y="-22.86" rot="R90"/>
-<instance part="R6" gate="G$1" x="154.94" y="-7.62"/>
-<instance part="GND14" gate="1" x="162.56" y="-25.4"/>
-<instance part="SUPPLY2" gate="G$1" x="172.72" y="2.54"/>
-<instance part="R7" gate="G$1" x="276.86" y="-7.62" rot="R90"/>
-<instance part="R8" gate="G$1" x="284.48" y="-7.62" rot="R90"/>
-<instance part="SUPPLY4" gate="G$1" x="276.86" y="0"/>
-<instance part="SUPPLY5" gate="G$1" x="284.48" y="0"/>
-<instance part="GND15" gate="1" x="259.08" y="-43.18"/>
-<instance part="SUPPLY6" gate="G$1" x="259.08" y="0"/>
-<instance part="GND16" gate="1" x="259.08" y="-15.24"/>
-<instance part="C10" gate="G$1" x="259.08" y="-5.08"/>
+<instance part="R5" gate="G$1" x="167.64" y="-22.86" rot="R90"/>
+<instance part="R6" gate="G$1" x="167.64" y="-7.62"/>
+<instance part="GND14" gate="1" x="175.26" y="-25.4"/>
+<instance part="SUPPLY2" gate="G$1" x="185.42" y="2.54"/>
+<instance part="R7" gate="G$1" x="289.56" y="-7.62" rot="R90"/>
+<instance part="R8" gate="G$1" x="297.18" y="-7.62" rot="R90"/>
+<instance part="SUPPLY4" gate="G$1" x="289.56" y="0"/>
+<instance part="SUPPLY5" gate="G$1" x="297.18" y="0"/>
+<instance part="GND15" gate="1" x="271.78" y="-43.18"/>
+<instance part="SUPPLY6" gate="G$1" x="271.78" y="0"/>
+<instance part="GND16" gate="1" x="271.78" y="-15.24"/>
+<instance part="C10" gate="G$1" x="271.78" y="-5.08"/>
 <instance part="C11" gate="G$1" x="15.24" y="-66.04"/>
 <instance part="C12" gate="G$1" x="25.4" y="-66.04"/>
 <instance part="GND35" gate="1" x="15.24" y="-76.2"/>
@@ -9567,16 +9570,16 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="SUPPLY50" gate="G$1" x="302.26" y="-111.76" smashed="yes">
 <attribute name="VALUE" x="301.244" y="-108.204" size="1.778" layer="96"/>
 </instance>
-<instance part="SUPPLY51" gate="G$1" x="195.58" y="-22.86"/>
-<instance part="SUPPLY52" gate="G$1" x="187.96" y="-22.86"/>
-<instance part="GND43" gate="1" x="203.2" y="-43.18"/>
-<instance part="CN1" gate="G$1" x="218.44" y="-20.32" smashed="yes">
-<attribute name="VALUE" x="209.55" y="-43.18" size="1.778" layer="96"/>
+<instance part="SUPPLY51" gate="G$1" x="208.28" y="-22.86"/>
+<instance part="SUPPLY52" gate="G$1" x="200.66" y="-22.86"/>
+<instance part="GND43" gate="1" x="215.9" y="-43.18"/>
+<instance part="CN1" gate="G$1" x="231.14" y="-20.32" smashed="yes">
+<attribute name="VALUE" x="222.25" y="-43.18" size="1.778" layer="96"/>
 </instance>
-<instance part="LEFT" gate="G$1" x="200.66" y="-10.16"/>
-<instance part="DOWN" gate="G$1" x="200.66" y="-7.62"/>
-<instance part="UP" gate="G$1" x="200.66" y="-5.08"/>
-<instance part="RIGHT" gate="G$1" x="200.66" y="-2.54"/>
+<instance part="LEFT" gate="G$1" x="213.36" y="-10.16"/>
+<instance part="DOWN" gate="G$1" x="213.36" y="-7.62"/>
+<instance part="UP" gate="G$1" x="213.36" y="-5.08"/>
+<instance part="RIGHT" gate="G$1" x="213.36" y="-2.54"/>
 <instance part="LED0" gate="G$1" x="63.5" y="-66.04" smashed="yes">
 <attribute name="NAME" x="53.34" y="-73.66" size="1.778" layer="95"/>
 <attribute name="VALUE" x="53.34" y="-76.2" size="1.778" layer="96"/>
@@ -9722,6 +9725,12 @@ We've spent an enormous amount of time creating and checking these footprints an
 <attribute name="VALUE" x="247.904" y="-108.204" size="1.778" layer="96"/>
 </instance>
 <instance part="GND34" gate="1" x="248.92" y="-124.46"/>
+<instance part="C19" gate="G$1" x="152.4" y="-5.08"/>
+<instance part="GND44" gate="1" x="152.4" y="-15.24"/>
+<instance part="R9" gate="G$1" x="251.46" y="-5.08" smashed="yes">
+<attribute name="NAME" x="247.65" y="-3.5814" size="1.778" layer="95"/>
+<attribute name="VALUE" x="252.73" y="-3.302" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -9825,18 +9834,18 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <pinref part="Q1" gate="G$1" pin="E"/>
 <pinref part="GND14" gate="1" pin="GND"/>
-<wire x1="162.56" y1="-20.32" x2="162.56" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="-20.32" x2="175.26" y2="-22.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="GND"/>
 <pinref part="GND15" gate="1" pin="GND"/>
-<wire x1="261.62" y1="-38.1" x2="259.08" y2="-38.1" width="0.1524" layer="91"/>
-<wire x1="259.08" y1="-38.1" x2="259.08" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="-38.1" x2="271.78" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="-38.1" x2="271.78" y2="-40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C10" gate="G$1" pin="2"/>
 <pinref part="GND16" gate="1" pin="GND"/>
-<wire x1="259.08" y1="-10.16" x2="259.08" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="-10.16" x2="271.78" y2="-12.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND36" gate="1" pin="GND"/>
@@ -9880,14 +9889,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 </segment>
 <segment>
 <pinref part="GND43" gate="1" pin="GND"/>
-<wire x1="205.74" y1="-33.02" x2="203.2" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="-33.02" x2="203.2" y2="-35.56" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="-35.56" x2="203.2" y2="-38.1" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="-38.1" x2="203.2" y2="-40.64" width="0.1524" layer="91"/>
-<wire x1="205.74" y1="-35.56" x2="203.2" y2="-35.56" width="0.1524" layer="91"/>
-<wire x1="205.74" y1="-38.1" x2="203.2" y2="-38.1" width="0.1524" layer="91"/>
-<junction x="203.2" y="-35.56"/>
-<junction x="203.2" y="-38.1"/>
+<wire x1="218.44" y1="-33.02" x2="215.9" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="-33.02" x2="215.9" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="-35.56" x2="215.9" y2="-38.1" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="-38.1" x2="215.9" y2="-40.64" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="-35.56" x2="215.9" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="-38.1" x2="215.9" y2="-38.1" width="0.1524" layer="91"/>
+<junction x="215.9" y="-35.56"/>
+<junction x="215.9" y="-38.1"/>
 <pinref part="CN1" gate="G$1" pin="GND@2"/>
 <pinref part="CN1" gate="G$1" pin="GND@1"/>
 <pinref part="CN1" gate="G$1" pin="GND@0"/>
@@ -10000,6 +10009,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="248.92" y1="-121.92" x2="248.92" y2="-119.38" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="-119.38" x2="251.46" y2="-119.38" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="C19" gate="G$1" pin="2"/>
+<pinref part="GND44" gate="1" pin="GND"/>
+<wire x1="152.4" y1="-10.16" x2="152.4" y2="-12.7" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="SW" class="0">
 <segment>
@@ -10038,8 +10052,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 </segment>
 <segment>
 <pinref part="SUPPLY51" gate="G$1" pin="V_BATT"/>
-<wire x1="205.74" y1="-25.4" x2="195.58" y2="-25.4" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="-25.4" x2="195.58" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="-25.4" x2="208.28" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="-25.4" x2="208.28" y2="-22.86" width="0.1524" layer="91"/>
 <pinref part="CN1" gate="G$1" pin="5V"/>
 </segment>
 </net>
@@ -10080,9 +10094,9 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="50.8" y="-15.24" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="231.14" y1="-27.94" x2="246.38" y2="-27.94" width="0.1524" layer="91"/>
-<label x="233.68" y="-27.94" size="1.778" layer="95"/>
-<pinref part="CN1" gate="G$1" pin="*D9"/>
+<pinref part="CN1" gate="G$1" pin="A5"/>
+<wire x1="218.44" y1="-15.24" x2="203.2" y2="-15.24" width="0.1524" layer="91"/>
+<label x="205.74" y="-15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SMPSU-OUTPUT" class="0">
@@ -10103,37 +10117,41 @@ We've spent an enormous amount of time creating and checking these footprints an
 <junction x="116.84" y="0"/>
 <junction x="127" y="0"/>
 <pinref part="Q2" gate="G$1" pin="S"/>
-<wire x1="160.02" y1="0" x2="147.32" y2="0" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="0" x2="160.02" y2="0" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="147.32" y1="0" x2="137.16" y2="0" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="-7.62" x2="147.32" y2="-7.62" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="-7.62" x2="147.32" y2="0" width="0.1524" layer="91"/>
-<junction x="147.32" y="0"/>
+<wire x1="160.02" y1="0" x2="152.4" y2="0" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="0" x2="137.16" y2="0" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="-7.62" x2="160.02" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="-7.62" x2="160.02" y2="0" width="0.1524" layer="91"/>
+<junction x="160.02" y="0"/>
 <junction x="106.68" y="0"/>
 <junction x="137.16" y="0"/>
+<pinref part="C19" gate="G$1" pin="1"/>
+<wire x1="152.4" y1="0" x2="152.4" y2="-2.54" width="0.1524" layer="91"/>
+<junction x="152.4" y="0"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="Q1" gate="G$1" pin="C"/>
 <pinref part="Q2" gate="G$1" pin="G"/>
-<wire x1="162.56" y1="-10.16" x2="162.56" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="-10.16" x2="175.26" y2="-7.62" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="162.56" y1="-7.62" x2="162.56" y2="-5.08" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="-7.62" x2="162.56" y2="-7.62" width="0.1524" layer="91"/>
-<junction x="162.56" y="-7.62"/>
+<wire x1="175.26" y1="-7.62" x2="175.26" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="-7.62" x2="175.26" y2="-7.62" width="0.1524" layer="91"/>
+<junction x="175.26" y="-7.62"/>
 </segment>
 </net>
 <net name="LED-PWM" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="154.94" y1="-27.94" x2="154.94" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="-30.48" x2="139.7" y2="-30.48" width="0.1524" layer="91"/>
-<label x="142.24" y="-30.48" size="1.778" layer="95"/>
+<wire x1="167.64" y1="-27.94" x2="167.64" y2="-30.48" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="-30.48" x2="152.4" y2="-30.48" width="0.1524" layer="91"/>
+<label x="154.94" y="-30.48" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="231.14" y1="-17.78" x2="246.38" y2="-17.78" width="0.1524" layer="91"/>
-<label x="233.68" y="-17.78" size="1.778" layer="95"/>
+<wire x1="243.84" y1="-17.78" x2="259.08" y2="-17.78" width="0.1524" layer="91"/>
+<label x="246.38" y="-17.78" size="1.778" layer="95"/>
 <pinref part="CN1" gate="G$1" pin="*D5"/>
 </segment>
 </net>
@@ -10141,16 +10159,16 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <pinref part="Q1" gate="G$1" pin="B"/>
 <pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="157.48" y1="-15.24" x2="154.94" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="-15.24" x2="154.94" y2="-17.78" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="-15.24" x2="167.64" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="-15.24" x2="167.64" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="5V" class="0">
 <segment>
 <pinref part="Q2" gate="G$1" pin="D"/>
 <pinref part="SUPPLY2" gate="G$1" pin="5V"/>
-<wire x1="170.18" y1="0" x2="172.72" y2="0" width="0.1524" layer="91"/>
-<wire x1="172.72" y1="0" x2="172.72" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="0" x2="185.42" y2="0" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="0" x2="185.42" y2="2.54" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="LED0" gate="G$1" pin="LED-VCC"/>
@@ -10264,34 +10282,34 @@ We've spent an enormous amount of time creating and checking these footprints an
 <net name="SDA" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
-<wire x1="276.86" y1="-12.7" x2="276.86" y2="-22.86" width="0.1524" layer="91"/>
-<label x="276.86" y="-20.32" size="1.778" layer="95" rot="R90"/>
+<wire x1="289.56" y1="-12.7" x2="289.56" y2="-22.86" width="0.1524" layer="91"/>
+<label x="289.56" y="-20.32" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="SDA"/>
-<wire x1="289.56" y1="-33.02" x2="302.26" y2="-33.02" width="0.1524" layer="91"/>
-<label x="292.1" y="-33.02" size="1.778" layer="95"/>
+<wire x1="302.26" y1="-33.02" x2="314.96" y2="-33.02" width="0.1524" layer="91"/>
+<label x="304.8" y="-33.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="231.14" y1="-12.7" x2="246.38" y2="-12.7" width="0.1524" layer="91"/>
-<label x="233.68" y="-12.7" size="1.778" layer="95"/>
+<wire x1="243.84" y1="-12.7" x2="259.08" y2="-12.7" width="0.1524" layer="91"/>
+<label x="246.38" y="-12.7" size="1.778" layer="95"/>
 <pinref part="CN1" gate="G$1" pin="*D3"/>
 </segment>
 </net>
 <net name="SCL" class="0">
 <segment>
 <pinref part="R8" gate="G$1" pin="1"/>
-<wire x1="284.48" y1="-12.7" x2="284.48" y2="-22.86" width="0.1524" layer="91"/>
-<label x="284.48" y="-20.32" size="1.778" layer="95" rot="R90"/>
+<wire x1="297.18" y1="-12.7" x2="297.18" y2="-22.86" width="0.1524" layer="91"/>
+<label x="297.18" y="-20.32" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="SCL"/>
-<wire x1="289.56" y1="-35.56" x2="302.26" y2="-35.56" width="0.1524" layer="91"/>
-<label x="292.1" y="-35.56" size="1.778" layer="95"/>
+<wire x1="302.26" y1="-35.56" x2="314.96" y2="-35.56" width="0.1524" layer="91"/>
+<label x="304.8" y="-35.56" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="231.14" y1="-10.16" x2="246.38" y2="-10.16" width="0.1524" layer="91"/>
-<label x="233.68" y="-10.16" size="1.778" layer="95"/>
+<wire x1="243.84" y1="-10.16" x2="259.08" y2="-10.16" width="0.1524" layer="91"/>
+<label x="246.38" y="-10.16" size="1.778" layer="95"/>
 <pinref part="CN1" gate="G$1" pin="D2"/>
 </segment>
 </net>
@@ -10299,23 +10317,23 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <pinref part="R7" gate="G$1" pin="2"/>
 <pinref part="SUPPLY4" gate="G$1" pin="3.3V"/>
-<wire x1="276.86" y1="-2.54" x2="276.86" y2="0" width="0.1524" layer="91"/>
+<wire x1="289.56" y1="-2.54" x2="289.56" y2="0" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R8" gate="G$1" pin="2"/>
 <pinref part="SUPPLY5" gate="G$1" pin="3.3V"/>
-<wire x1="284.48" y1="-2.54" x2="284.48" y2="0" width="0.1524" layer="91"/>
+<wire x1="297.18" y1="-2.54" x2="297.18" y2="0" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SUPPLY3" gate="G$1" pin="3.3V"/>
 <pinref part="IC2" gate="G$1" pin="VCC"/>
-<wire x1="259.08" y1="-30.48" x2="259.08" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="259.08" y1="-33.02" x2="261.62" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="-30.48" x2="271.78" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="-33.02" x2="274.32" y2="-33.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SUPPLY6" gate="G$1" pin="3.3V"/>
 <pinref part="C10" gate="G$1" pin="1"/>
-<wire x1="259.08" y1="0" x2="259.08" y2="-2.54" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="0" x2="271.78" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SUPPLY43" gate="G$1" pin="3.3V"/>
@@ -10359,8 +10377,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 </segment>
 <segment>
 <pinref part="SUPPLY52" gate="G$1" pin="3.3V"/>
-<wire x1="205.74" y1="-27.94" x2="187.96" y2="-27.94" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="-27.94" x2="187.96" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="218.44" y1="-27.94" x2="200.66" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="200.66" y1="-27.94" x2="200.66" y2="-22.86" width="0.1524" layer="91"/>
 <pinref part="CN1" gate="G$1" pin="3.3V"/>
 </segment>
 <segment>
@@ -10474,8 +10492,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 </net>
 <net name="LED-DATA" class="0">
 <segment>
-<wire x1="231.14" y1="-33.02" x2="246.38" y2="-33.02" width="0.1524" layer="91"/>
-<label x="233.68" y="-33.02" size="1.778" layer="95"/>
+<wire x1="243.84" y1="-33.02" x2="259.08" y2="-33.02" width="0.1524" layer="91"/>
+<label x="246.38" y="-33.02" size="1.778" layer="95"/>
 <pinref part="CN1" gate="G$1" pin="*D11"/>
 </segment>
 <segment>
@@ -10486,14 +10504,14 @@ We've spent an enormous amount of time creating and checking these footprints an
 </net>
 <net name="LIGHT-INT" class="0">
 <segment>
-<wire x1="231.14" y1="-22.86" x2="246.38" y2="-22.86" width="0.1524" layer="91"/>
-<label x="233.68" y="-22.86" size="1.778" layer="95"/>
-<pinref part="CN1" gate="G$1" pin="D7"/>
+<pinref part="IC2" gate="G$1" pin="INT"/>
+<wire x1="302.26" y1="-38.1" x2="314.96" y2="-38.1" width="0.1524" layer="91"/>
+<label x="304.8" y="-38.1" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC2" gate="G$1" pin="INT"/>
-<wire x1="289.56" y1="-38.1" x2="302.26" y2="-38.1" width="0.1524" layer="91"/>
-<label x="292.1" y="-38.1" size="1.778" layer="95"/>
+<pinref part="R9" gate="G$1" pin="2"/>
+<wire x1="256.54" y1="-5.08" x2="266.7" y2="-5.08" width="0.1524" layer="91"/>
+<label x="259.08" y="-5.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -10645,6 +10663,13 @@ We've spent an enormous amount of time creating and checking these footprints an
 <segment>
 <pinref part="CN1" gate="G$1" pin="A0"/>
 <pinref part="RIGHT" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="R9" gate="G$1" pin="1"/>
+<pinref part="CN1" gate="G$1" pin="TX"/>
+<wire x1="246.38" y1="-5.08" x2="243.84" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
