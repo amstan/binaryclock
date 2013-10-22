@@ -9573,10 +9573,10 @@ We've spent an enormous amount of time creating and checking these footprints an
 <instance part="CN1" gate="G$1" x="218.44" y="-20.32" smashed="yes">
 <attribute name="VALUE" x="209.55" y="-43.18" size="1.778" layer="96"/>
 </instance>
-<instance part="LEFT" gate="G$1" x="198.12" y="-2.54"/>
-<instance part="DOWN" gate="G$1" x="198.12" y="-5.08"/>
-<instance part="UP" gate="G$1" x="198.12" y="-7.62"/>
-<instance part="RIGHT" gate="G$1" x="198.12" y="-10.16"/>
+<instance part="LEFT" gate="G$1" x="200.66" y="-10.16"/>
+<instance part="DOWN" gate="G$1" x="200.66" y="-7.62"/>
+<instance part="UP" gate="G$1" x="200.66" y="-5.08"/>
+<instance part="RIGHT" gate="G$1" x="200.66" y="-2.54"/>
 <instance part="LED0" gate="G$1" x="63.5" y="-66.04" smashed="yes">
 <attribute name="NAME" x="53.34" y="-73.66" size="1.778" layer="95"/>
 <attribute name="VALUE" x="53.34" y="-76.2" size="1.778" layer="96"/>
@@ -10496,34 +10496,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 <label x="292.1" y="-38.1" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$26" class="0">
-<segment>
-<pinref part="CN1" gate="G$1" pin="A0"/>
-<wire x1="205.74" y1="-2.54" x2="203.2" y2="-2.54" width="0.1524" layer="91"/>
-<pinref part="LEFT" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$27" class="0">
-<segment>
-<pinref part="CN1" gate="G$1" pin="A1"/>
-<wire x1="205.74" y1="-5.08" x2="203.2" y2="-5.08" width="0.1524" layer="91"/>
-<pinref part="DOWN" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$28" class="0">
-<segment>
-<pinref part="CN1" gate="G$1" pin="A2"/>
-<wire x1="205.74" y1="-7.62" x2="203.2" y2="-7.62" width="0.1524" layer="91"/>
-<pinref part="UP" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$29" class="0">
-<segment>
-<pinref part="CN1" gate="G$1" pin="A3"/>
-<wire x1="205.74" y1="-10.16" x2="203.2" y2="-10.16" width="0.1524" layer="91"/>
-<pinref part="RIGHT" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="LED1" gate="G$1" pin="DIN"/>
@@ -10649,6 +10621,30 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="43.18" y1="-116.84" x2="48.26" y2="-116.84" width="0.1524" layer="91"/>
 <pinref part="LED11" gate="G$1" pin="DOUT"/>
 <wire x1="281.94" y1="-91.44" x2="284.48" y2="-91.44" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="CN1" gate="G$1" pin="A3"/>
+<pinref part="LEFT" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="CN1" gate="G$1" pin="A2"/>
+<pinref part="DOWN" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="CN1" gate="G$1" pin="A1"/>
+<pinref part="UP" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="CN1" gate="G$1" pin="A0"/>
+<pinref part="RIGHT" gate="G$1" pin="1"/>
 </segment>
 </net>
 </nets>
