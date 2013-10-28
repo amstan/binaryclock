@@ -23,10 +23,22 @@ void chip_init(void) {
 	core_frequency_set(16000000);
 	
 	#define LED1 0
-	P1DIR=1<<LED1;
+	//P1DIR=1<<LED1;
 	
 	#define LED2 7
 	P4DIR=1<<LED2;
+	
+	set_bit(P1SEL,0); //output ACLK
+	set_bit(P1DIR,0);
+	set_bit(P1OUT,0);
+	
+	set_bit(P2SEL,2); //output SMCLK
+	set_bit(P2DIR,2);
+	set_bit(P2OUT,2);
+}
+
+void calendar_init(void) {
+	RTCCTL01=RTCMODE+RTCSSEL_0;
 }
 
 int getchar(void) {
@@ -40,22 +52,12 @@ int putchar(int c) {
 int main(void) {
 	chip_init();
 	USBSerial_open();
+	calendar_init();
 	
-	set_bit(P1OUT,LED1);
-	clear_bit(P1OUT,LED1);
-	
-	//char buffer[50]="";
-	unsigned int i=0;
+	clear_bit(P4OUT,LED2);
 	
 	while(1) {
-		
-		toggle_bit(P1OUT,LED1);
 		toggle_bit(P4OUT,LED2);
-		
-		printf("%u\n",i++);
-		
-		//USBSerial_write(buffer,strlen(buffer));
-		
-		i++;
+		printf("%02u:%02u:%02u\n",RTCHOUR,RTCMIN,RTCSEC);
 	}
 }
