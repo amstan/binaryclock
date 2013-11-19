@@ -1,6 +1,6 @@
 #include <msp430.h>
 #include "bitop.h"
-#include "USBSerial.h"
+//#include "USBSerial.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,45 +19,118 @@ void chip_init(void) {
 	WDTCTL = WDTPW + WDTHOLD; //Stop WDT
 	
 	//FCPU setting
-	P5SEL |= 0x0C; //Change pin modes to xtal
 	core_frequency_set(16000000);
+	//Change pin modes for 32k xtal
+	P5SEL=0;
+	set_bit(P5SEL,4);
+	set_bit(P5SEL,5);
 	
-	#define LED1 0
-	//P1DIR=1<<LED1;
+	#define BOARD_LED 3 //PJ.3
+	PJDIR=1<<BOARD_LED;
 	
-	#define LED2 7
-	P4DIR=1<<LED2;
+	#define LED_PWM 3 //P1.3
+	P1DIR|=(1<<LED_PWM);
 	
-	set_bit(P1SEL,0); //output ACLK
-	set_bit(P1DIR,0);
-	set_bit(P1OUT,0);
+	#define PWR_EN 1 //P5.1
+	P5DIR|=(1<<PWR_EN);
 	
-	set_bit(P2SEL,2); //output SMCLK
-	set_bit(P2DIR,2);
-	set_bit(P2OUT,2);
+	#define LED_DATA 1 //P4.1
+	P4DIR|=(1<<LED_DATA);
+	clear_bit(P4OUT,LED_DATA);
+	
+	#define SCL
+	#define SDA
 }
 
 void calendar_init(void) {
 	RTCCTL01=RTCMODE+RTCSSEL_0;
 }
 
-int getchar(void) {
-	return 0;
-}
-
-int putchar(int c) {
-	return USBSerial_write(c);
+extern "C" {
+	void write_ws2811_hs(uint8_t *data, uint16_t length, uint8_t pinmask);
 }
 
 int main(void) {
 	chip_init();
-	USBSerial_open();
+// 	USBSerial_open();
 	calendar_init();
 	
-	clear_bit(P4OUT,LED2);
+	for(unsigned int i=0;i<100;i++) __delay_cycles(60000); //wait for led controllers to start up
 	
+	set_bit(PJOUT,BOARD_LED);
+	set_bit(P5OUT,PWR_EN);
+	set_bit(P1OUT,LED_PWM);
+	
+	#define G 0
+	#define R 1
+	#define B 2
+	const uint16_t led_count=18;
+	uint8_t data[led_count*3]={
+		0x00, 0xff, 0x00,
+		0xff, 0xff, 0x00,
+		0xff, 0x00, 0x00,
+		0xff, 0x00, 0xff,
+		0x00, 0x00, 0xff,
+		0x00, 0xff, 0xff,
+		
+		0x00, 0x40, 0x00,
+		0x40, 0x40, 0x00,
+		0x40, 0x00, 0x00,
+		0x40, 0x00, 0x40,
+		0x00, 0x00, 0x40,
+		0x00, 0x40, 0x40,
+		
+		0x00, 0x08, 0x00,
+		0x08, 0x08, 0x00,
+		0x08, 0x00, 0x00,
+		0x08, 0x00, 0x08,
+		0x00, 0x00, 0x08,
+		0x00, 0x08, 0x08,
+	};
+	
+	#define HOURS 0
+	#define MINUTES 1
+	#define SECONDS 2
+	
+	RTCHOUR=22;
+	RTCMIN=23;
+	RTCSEC=15;
+	
+	write_ws2811_hs(data,led_count*3,1<<LED_DATA);
 	while(1) {
-		toggle_bit(P4OUT,LED2);
-		printf("%02u:%02u:%02u\n",RTCHOUR,RTCMIN,RTCSEC);
+		for (unsigned char row=0;row<3;row++) {
+			unsigned char row_R,row_G,row_B,row_value;
+			switch(row) {
+				case HOURS:
+					row_R=0x01;
+					row_G=0x00;
+					row_B=0x00;
+					row_value=RTCHOUR;
+					break;
+				case MINUTES:
+					row_R=0x00;
+					row_G=0x01;
+					row_B=0x00;
+					row_value=RTCMIN;
+					break;
+				case SECONDS:
+					row_R=0x00;
+					row_G=0x00;
+					row_B=0x01;
+					row_value=RTCSEC;
+					break;
+			}
+			for (unsigned char inv_bit=0;inv_bit<6;inv_bit++) {
+				unsigned char led=row*6+inv_bit;
+				unsigned char bit=5-inv_bit;
+				data[led*3+R]=row_R*(test_bit(row_value,bit)*10+1);
+				data[led*3+G]=row_G*(test_bit(row_value,bit)*10+1);
+				data[led*3+B]=row_B*(test_bit(row_value,bit)*10+1);
+			}
+		}
+		write_ws2811_hs(data,led_count*3,1<<LED_DATA);
+		for(unsigned int i=0;i<1;i++)
+			__delay_cycles(6000);
+// 		printf("%02u:%02u:%02u\n",RTCHOUR,RTCMIN,RTCSEC);
 	}
 }

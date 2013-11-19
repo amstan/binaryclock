@@ -50,33 +50,33 @@ byte_loop_hs:                           ;
 bit_loop_hs:                            ; - Bit loop - 20 cycles per bit
         rla.b   R12                     ; Get next bit
         jc      one_hs                  ; Jump if one...
-        bis.b   R13, &P1OUT             ; Output high
-        bic.b   R13, &P1OUT             ; Output low - 4 cycles elapsed
-        bic.b   R13, &P1OUT             ; 4 cycle nop
+        bis.b   R13, &P4OUT             ; Output high
+        bic.b   R13, &P4OUT             ; Output low - 4 cycles elapsed
+        bic.b   R13, &P4OUT             ; 4 cycle nop
         jmp     next_bit_hs             ; Next bit...
 one_hs:                                 ;
-        bis.b   R13, &P1OUT             ; Output high
-        bis.b   R13, &P1OUT             ; 4 cycle nop
+        bis.b   R13, &P4OUT             ; Output high
+        bis.b   R13, &P4OUT             ; 4 cycle nop
         jmp     $ + 2                   ; 2 cycle nop
-        bic.b   R13, &P1OUT             ; Output low - 10 cycles elapsed
+        bic.b   R13, &P4OUT             ; Output low - 10 cycles elapsed
 next_bit_hs:                            ;
         dec     R11                     ; Decrement bit count
         jne     bit_loop_hs             ; Do next bit of not zero...
                                         ;
         rla.b   R12                     ; Get final bit of byte
         jc      last_one_hs             ; Jump if one...
-        bis.b   R13, &P1OUT             ; Output high
-        bic.b   R13, &P1OUT             ; Output low - 4 cycles elapsed
+        bis.b   R13, &P4OUT             ; Output high
+        bic.b   R13, &P4OUT             ; Output low - 4 cycles elapsed
         jmp     $ + 2                   ; 2 cycle nop
         dec     R14                     ; Decrement byte count
         jne     byte_loop_hs            ; Next byte if count not zero...
         jmp     reset_hs                ; All bytes done, reset...
 last_one_hs:                            ;
-        bis.b   R13, &P1OUT             ; Output high
+        bis.b   R13, &P4OUT             ; Output high
         jmp     $ + 2                   ; 2 cycle nop
         mov     #7, R11                 ; Reset bit counter
         mov.b   @R15+, R12              ; Get next byte from buffer
-        bic.b   R13, &P1OUT             ; Output low - 10 cycles elapsed
+        bic.b   R13, &P4OUT             ; Output low - 10 cycles elapsed
         dec     R14                     ; Decrement byte count
         jne     bit_loop_hs             ; Do next byte if count is not zero...
                                         ;
