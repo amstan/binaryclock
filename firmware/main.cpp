@@ -40,6 +40,18 @@ void chip_init(void) {
 	
 	#define SCL
 	#define SDA
+	
+	//Analog pins - Port 6
+	#define RIGHT 0
+	#define UP 1
+	#define DOWN 2
+	#define LEFT 3
+}
+
+#pragma vector=WDT_VECTOR
+__interrupt void watchdog_timer(void) {
+	TA0CCTL1 ^= CCIS0; // Create SW capture of CCR1
+	__bic_SR_register_on_exit(LPM3_bits); // Exit LPM3 on reti
 }
 
 void calendar_init(void) {
@@ -48,6 +60,47 @@ void calendar_init(void) {
 
 extern "C" {
 	void write_ws2811_hs(uint8_t *data, uint16_t length, uint8_t pinmask);
+}
+
+#define G 0
+#define R 1
+#define B 2
+
+#define HOURS 0
+#define MINUTES 1
+#define SECONDS 2
+
+void gettime(unsigned char *data) {
+	for (unsigned char row=0;row<3;row++) {
+		unsigned char row_R,row_G,row_B,row_value;
+		switch(row) {
+			case HOURS:
+				row_R=0x01;
+				row_G=0x00;
+				row_B=0x00;
+				row_value=RTCHOUR;
+				break;
+			case MINUTES:
+				row_R=0x00;
+				row_G=0x01;
+				row_B=0x00;
+				row_value=RTCMIN;
+				break;
+			case SECONDS:
+				row_R=0x00;
+				row_G=0x00;
+				row_B=0x01;
+				row_value=RTCSEC;
+				break;
+		}
+		for (unsigned char inv_bit=0;inv_bit<6;inv_bit++) {
+			unsigned char led=row*6+inv_bit;
+			unsigned char bit=5-inv_bit;
+			data[led*3+R]=row_R*(test_bit(row_value,bit)*0x10+1);
+			data[led*3+G]=row_G*(test_bit(row_value,bit)*0x10+1);
+			data[led*3+B]=row_B*(test_bit(row_value,bit)*0x10+1);
+		}
+	}
 }
 
 int main(void) {
@@ -61,75 +114,25 @@ int main(void) {
 	set_bit(P5OUT,PWR_EN);
 	set_bit(P1OUT,LED_PWM);
 	
-	#define G 0
-	#define R 1
-	#define B 2
 	const uint16_t led_count=18;
-	uint8_t data[led_count*3]={
-		0x00, 0xff, 0x00,
-		0xff, 0xff, 0x00,
-		0xff, 0x00, 0x00,
-		0xff, 0x00, 0xff,
-		0x00, 0x00, 0xff,
-		0x00, 0xff, 0xff,
-		
-		0x00, 0x40, 0x00,
-		0x40, 0x40, 0x00,
-		0x40, 0x00, 0x00,
-		0x40, 0x00, 0x40,
-		0x00, 0x00, 0x40,
-		0x00, 0x40, 0x40,
-		
-		0x00, 0x08, 0x00,
-		0x08, 0x08, 0x00,
-		0x08, 0x00, 0x00,
-		0x08, 0x00, 0x08,
-		0x00, 0x00, 0x08,
-		0x00, 0x08, 0x08,
-	};
-	
-	#define HOURS 0
-	#define MINUTES 1
-	#define SECONDS 2
+	#define n (led_count*3)
+	uint8_t dest[n];
+	uint8_t current[n];
+	memset(current,0,n);
 	
 	RTCHOUR=22;
 	RTCMIN=23;
 	RTCSEC=15;
 	
-	write_ws2811_hs(data,led_count*3,1<<LED_DATA);
+	gettime(dest);
 	while(1) {
-		for (unsigned char row=0;row<3;row++) {
-			unsigned char row_R,row_G,row_B,row_value;
-			switch(row) {
-				case HOURS:
-					row_R=0x01;
-					row_G=0x00;
-					row_B=0x00;
-					row_value=RTCHOUR;
-					break;
-				case MINUTES:
-					row_R=0x00;
-					row_G=0x01;
-					row_B=0x00;
-					row_value=RTCMIN;
-					break;
-				case SECONDS:
-					row_R=0x00;
-					row_G=0x00;
-					row_B=0x01;
-					row_value=RTCSEC;
-					break;
-			}
-			for (unsigned char inv_bit=0;inv_bit<6;inv_bit++) {
-				unsigned char led=row*6+inv_bit;
-				unsigned char bit=5-inv_bit;
-				data[led*3+R]=row_R*(test_bit(row_value,bit)*10+1);
-				data[led*3+G]=row_G*(test_bit(row_value,bit)*10+1);
-				data[led*3+B]=row_B*(test_bit(row_value,bit)*10+1);
-			}
+		gettime(dest);
+		for(unsigned int i=0;i<n;i++) {
+			if(current[i]>dest[i]) current[i]--;
+			if(current[i]<dest[i]) current[i]++;
 		}
-		write_ws2811_hs(data,led_count*3,1<<LED_DATA);
-		for(unsigned int i=0;i<1;i++)
+		write_ws2811_hs(current,n,1<<LED_DATA);
+		for(unsigned int i=0;i<70;i++)
 			__delay_cycles(6000);
 // 		printf("%02u:%02u:%02u\n",RTCHOUR,RTCMIN,RTCSEC);
 	}
