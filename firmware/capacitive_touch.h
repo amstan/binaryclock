@@ -44,8 +44,6 @@ void __attribute__((interrupt (TIMER0_A0_VECTOR))) we_got_bored() {
 }
 
 unsigned int capacitance_read(unsigned char channel) {
-	cb_init(0);
-	ta0_init(0);
 	comparator_channel=channel;
 	
 	//Discharge
@@ -56,11 +54,7 @@ unsigned int capacitance_read(unsigned char channel) {
 	clear_bit(P6OUT,channel^0x01);
 	set_bit(P6DIR,channel^0x01);
 	
-	__delay_cycles(30000); //wait for stuff to charge
-	
 	//Prepare charge
-// 	cb_init(0);
-// 	ta0_init(0);
 	done=0;
 	ta0_init(1);
 	cb_init(1);

@@ -82,13 +82,19 @@ int main(void) {
 	uint8_t current[n];
 	memset(white,0xff,18*3);
 	
+	unsigned char calib_cap[4];
+	for(unsigned char j=0;j<10;j++) {
+		for(unsigned char i=0;i<4;i++) {
+			calib_cap[i]=capacitance_read(i);
+		}
+	}
+	
 	while(1) {
-		gettime(current);
+		//gettime(current);
 // 		for(unsigned int i=0;i<n;i++) {
 // 			if(current[i]>dest[i]) current[i]--;
 // 			if(current[i]<dest[i]) current[i]++;
 // 		}
-		write_ws2811_hs(current,n,1<<LED_DATA);
 		//for(unsigned int i=0;i<70;i++)
 		//	__delay_cycles(6000);
 		
@@ -98,7 +104,25 @@ int main(void) {
 // 			caps[i]=capacitance_read(i);
 // 		}
 // 		capacitance_read(0);
-		printf("%u\t%u\t%u\t%u\n",capacitance_read(3),capacitance_read(2),capacitance_read(1),capacitance_read(0));
+		for(unsigned int i=0;i<18;i++) {
+			int white=capacitance_read(3)-calib_cap[3];
+			if(white<0) white=0;
+			if(white>255) white=255;
+			int r=white+capacitance_read(2)-calib_cap[2];
+			if(r<0) r=0;
+			if(r>255) r=255;
+			int g=white+capacitance_read(1)-calib_cap[1];
+			if(g<0) g=0;
+			if(g>255) g=255;
+			int b=white+capacitance_read(0)-calib_cap[0];
+			if(b<0) b=0;
+			if(b>255) b=255;
+			current[i*3+R]=r;
+			current[i*3+G]=g;
+			current[i*3+B]=b;
+		}
+		write_ws2811_hs(current,n,1<<LED_DATA);
+		//printf("%u\t%u\t%u\t%u\n",capacitance_read(3),capacitance_read(2),capacitance_read(1),capacitance_read(0));
 		
 		//printf("%02u:%02u:%02u\n",RTCHOUR,RTCMIN,RTCSEC);
 	}
