@@ -42,6 +42,9 @@ void chip_init(void) {
 	///I2C for the TAOS light sensor
 	#define SCL 0 //P1.0
 	#define SDA 1 //P1.1
+	#define I2COUT P1OUT
+	#define I2CIN P1IN
+	#define I2CDIR P1DIR
 	
 	#define CBOUT 6 //P1.6
 	set_bit(P1SEL,CBOUT);
@@ -63,6 +66,7 @@ uint8_t white[18*3];
 #include "calendar.h"
 #include "usb-cdc.h"
 #include "capacitive_touch.h"
+#include "taos.h"
 
 int main(void) {
 	chip_init();
@@ -84,45 +88,16 @@ int main(void) {
 	unsigned char calib_cap[4];
 	for(unsigned char j=0;j<10;j++) {
 		for(unsigned char i=0;i<4;i++) {
-			calib_cap[i]=capacitance_read(i);
+			calib_cap[i]=capacitance_read(i)+20;
 		}
 	}
 	
 	while(1) {
-		//gettime(current);
-// 		for(unsigned int i=0;i<n;i++) {
-// 			if(current[i]>dest[i]) current[i]--;
-// 			if(current[i]<dest[i]) current[i]++;
-// 		}
-		//for(unsigned int i=0;i<70;i++)
-		//	__delay_cycles(6000);
-		
-		//while(USBSerial_read()!='\n');
-// 		unsigned int caps[4];
-// 		for(unsigned char i=0;i<4;i++) {
-// 			caps[i]=capacitance_read(i);
-// 		}
-// 		capacitance_read(0);
-		for(unsigned int i=0;i<18;i++) {
-			int white=capacitance_read(3)-calib_cap[3];
-			if(white<0) white=0;
-			if(white>255) white=255;
-			int r=white+capacitance_read(2)-calib_cap[2];
-			if(r<0) r=0;
-			if(r>255) r=255;
-			int g=white+capacitance_read(1)-calib_cap[1];
-			if(g<0) g=0;
-			if(g>255) g=255;
-			int b=white+capacitance_read(0)-calib_cap[0];
-			if(b<0) b=0;
-			if(b>255) b=255;
-			current[i*3+R]=r;
-			current[i*3+G]=g;
-			current[i*3+B]=b;
-		}
-		write_ws2811_hs(current,n,1<<LED_DATA);
-		//printf("%u\t%u\t%u\t%u\n",capacitance_read(3),capacitance_read(2),capacitance_read(1),capacitance_read(0));
-		
-		//printf("%02u:%02u:%02u\n",RTCHOUR,RTCMIN,RTCSEC);
+		while(USBSerial_read()!='\n');
+		printf("\nTesting i2c:\n");
+		printf("Writing test: ACK %d\n",i2c_write_register(TAOS_address, TAOS_AILTL,0xff));
+// 		printf("ENABLE= %x\n",i2c_read_register(TAOS_address, TAOS_ENABLE));
+// 		printf("WTIME= %x\n",i2c_read_register(TAOS_address, TAOS_WTIME));
+// 		printf("ID= %x\n",i2c_read_register(TAOS_address, TAOS_ID));
 	}
 }

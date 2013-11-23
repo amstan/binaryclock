@@ -55,4 +55,4 @@ tui: $(PROG).elf
 ddd: $(PROG).elf
 	ddd --debugger $(GDB) $(PROG).elf
 
-main.o: bitop.h calendar.h usb-cdc.h util.h ws2811.h capacitive_touch.h
+main.o: bitop.h calendar.h usb-cdc.h util.h ws2811.h capacitive_touch.h led_pwm.h i2c.h taos.h
