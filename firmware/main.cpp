@@ -63,7 +63,6 @@ uint8_t white[18*3];
 #include "calendar.h"
 #include "usb-cdc.h"
 #include "capacitive_touch.h"
-#include "string.h"
 
 int main(void) {
 	chip_init();

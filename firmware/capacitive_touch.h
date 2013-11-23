@@ -18,17 +18,17 @@ void cb_init(unsigned char on) {
 	CBINT=CBIE*on;
 }
 
-void ta0_init(unsigned char on) {
-	TA0CTL = 0;
-	TA0CTL |= TASSEL_2; //Internal osc
-	TA0CTL |= ID_0; //1x prescaler
-	TA0CTL |= MC_2*on; //Start the timer in continous mode
-	TA0CCTL0 |= CCIE; //Timer interrupt, in case it overflows
+void ta1_init(unsigned char on) {
+	TA1CTL = 0;
+	TA1CTL |= TASSEL_2; //Internal osc
+	TA1CTL |= ID_0; //1x prescaler
+	TA1CTL |= MC_2*on; //Start the timer in continous mode
+	TA1CCTL0 |= CCIE; //Timer interrupt, in case it overflows
 }
 void __attribute__((interrupt (COMP_B_VECTOR))) capacitor_reached_tau(void) {
 	CBINT &= ~(CBIFG + CBIIFG);
-	tau=TA0R;
-	ta0_init(0);
+	tau=TA1R;
+	ta1_init(0);
 	cb_init(0);
 	//write_ws2811_hs(white,18*3,1<<LED_DATA);
 // 	__bic_SR_register_on_exit(LPM0_bits); //Wakeup capacitance_read
@@ -37,7 +37,7 @@ void __attribute__((interrupt (COMP_B_VECTOR))) capacitor_reached_tau(void) {
 
 void __attribute__((interrupt (TIMER0_A0_VECTOR))) we_got_bored() {
 	cb_init(0);
-	ta0_init(0);
+	ta1_init(0);
 	tau=0xffff;
 // 	__bic_SR_register_on_exit(LPM0_bits); //Wakeup capacitance_read
 	done=1;
@@ -56,14 +56,14 @@ unsigned int capacitance_read(unsigned char channel) {
 	
 	//Prepare charge
 	done=0;
-	ta0_init(1);
+	ta1_init(1);
 	cb_init(1);
-	TA0R=0;
+	TA1R=0;
 	set_bit(P6OUT,channel^0x01); //let channel start charging
 // 	__bis_SR_register(LPM0_bits + GIE); //sleep until discharge
 	while(!done);
 	
-	ta0_init(0);
+	ta1_init(0);
 	cb_init(0);
 	
 	set_bit(P6DIR,channel);
