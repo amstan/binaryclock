@@ -1,116 +1,78 @@
 #include <msp430.h>
 #include "bitop.h"
-//#include "USBSerial.h"
 
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-void core_frequency_set(unsigned long int frequency) {
-	///Set multiplier based on the slow xtal
-	UCSCTL3 |= SELREF_2;
-	UCSCTL4 |= SELA_2;
-	UCSCTL0 = 0x0000;
-	UCSCTL1 = DCORSEL_5;
-	UCSCTL2 = FLLD_1 + (frequency/32768)-1;
-}
+#include "util.h"
 
 void chip_init(void) {
 	WDTCTL = WDTPW + WDTHOLD; //Stop WDT
 	
-	//FCPU setting
-	core_frequency_set(16000000);
 	//Change pin modes for 32k xtal
 	P5SEL=0;
 	set_bit(P5SEL,4);
 	set_bit(P5SEL,5);
 	
+	//change pins for hfxtal(4MHz), needed for usb
+	set_bit(P5SEL,2);
+	set_bit(P5SEL,3);
+	
+	//FCPU setting
+	core_frequency_set(16000000); //uses 32KHz
+	
+	///The green led from the olimexino board
 	#define BOARD_LED 3 //PJ.3
 	PJDIR=1<<BOARD_LED;
 	
-	#define LED_PWM 3 //P1.3
-	P1DIR|=(1<<LED_PWM);
-	
+	///SMPSU
 	#define PWR_EN 1 //P5.1
-	P5DIR|=(1<<PWR_EN);
+	set_bit(P5DIR,PWR_EN);
+	clear_bit(P5OUT,PWR_EN);
 	
+	///N-Channel PWMing mosfet for the 5V that powers the led diodes
+	#define LED_PWM 3 //P1.3
+	set_bit(P1DIR,LED_PWM);
+	clear_bit(P1OUT,LED_PWM);
+	
+	///Data pin for the WS2812s
 	#define LED_DATA 1 //P4.1
-	P4DIR|=(1<<LED_DATA);
+	P4DIR=(1<<LED_DATA);
 	clear_bit(P4OUT,LED_DATA);
 	
-	#define SCL
-	#define SDA
+	///I2C for the TAOS light sensor
+	#define SCL 0 //P1.0
+	#define SDA 1 //P1.1
 	
-	//Analog pins - Port 6
+	#define CBOUT 6 //P1.6
+	set_bit(P1SEL,CBOUT);
+	set_bit(P1DIR,CBOUT);
+	
+	///Capacitive Touch - Port 6
 	#define RIGHT 0
 	#define UP 1
 	#define DOWN 2
 	#define LEFT 3
+	
+	_BIS_SR(GIE);
 }
 
-#pragma vector=WDT_VECTOR
-__interrupt void watchdog_timer(void) {
-	TA0CCTL1 ^= CCIS0; // Create SW capture of CCR1
-	__bic_SR_register_on_exit(LPM3_bits); // Exit LPM3 on reti
-}
+#include "ws2811.h"
 
-void calendar_init(void) {
-	RTCCTL01=RTCMODE+RTCSSEL_0;
-}
+uint8_t white[18*3];
 
-extern "C" {
-	void write_ws2811_hs(uint8_t *data, uint16_t length, uint8_t pinmask);
-}
-
-#define G 0
-#define R 1
-#define B 2
-
-#define HOURS 0
-#define MINUTES 1
-#define SECONDS 2
-
-void gettime(unsigned char *data) {
-	for (unsigned char row=0;row<3;row++) {
-		unsigned char row_R,row_G,row_B,row_value;
-		switch(row) {
-			case HOURS:
-				row_R=0x01;
-				row_G=0x00;
-				row_B=0x00;
-				row_value=RTCHOUR;
-				break;
-			case MINUTES:
-				row_R=0x00;
-				row_G=0x01;
-				row_B=0x00;
-				row_value=RTCMIN;
-				break;
-			case SECONDS:
-				row_R=0x00;
-				row_G=0x00;
-				row_B=0x01;
-				row_value=RTCSEC;
-				break;
-		}
-		for (unsigned char inv_bit=0;inv_bit<6;inv_bit++) {
-			unsigned char led=row*6+inv_bit;
-			unsigned char bit=5-inv_bit;
-			data[led*3+R]=row_R*(test_bit(row_value,bit)*0x10+1);
-			data[led*3+G]=row_G*(test_bit(row_value,bit)*0x10+1);
-			data[led*3+B]=row_B*(test_bit(row_value,bit)*0x10+1);
-		}
-	}
-}
+#include "calendar.h"
+#include "usb-cdc.h"
+#include "capacitive_touch.h"
+#include "string.h"
 
 int main(void) {
 	chip_init();
-// 	USBSerial_open();
+	USBSerial_open();
 	calendar_init();
 	
 	for(unsigned int i=0;i<100;i++) __delay_cycles(60000); //wait for led controllers to start up
 	
-	set_bit(PJOUT,BOARD_LED);
+	clear_bit(PJOUT,BOARD_LED);
 	set_bit(P5OUT,PWR_EN);
 	set_bit(P1OUT,LED_PWM);
 	
@@ -118,22 +80,26 @@ int main(void) {
 	#define n (led_count*3)
 	uint8_t dest[n];
 	uint8_t current[n];
-	memset(current,0,n);
+	memset(white,0xff,18*3);
 	
-	RTCHOUR=22;
-	RTCMIN=23;
-	RTCSEC=15;
-	
-	gettime(dest);
 	while(1) {
-		gettime(dest);
-		for(unsigned int i=0;i<n;i++) {
-			if(current[i]>dest[i]) current[i]--;
-			if(current[i]<dest[i]) current[i]++;
-		}
+		gettime(current);
+// 		for(unsigned int i=0;i<n;i++) {
+// 			if(current[i]>dest[i]) current[i]--;
+// 			if(current[i]<dest[i]) current[i]++;
+// 		}
 		write_ws2811_hs(current,n,1<<LED_DATA);
-		for(unsigned int i=0;i<70;i++)
-			__delay_cycles(6000);
-// 		printf("%02u:%02u:%02u\n",RTCHOUR,RTCMIN,RTCSEC);
+		//for(unsigned int i=0;i<70;i++)
+		//	__delay_cycles(6000);
+		
+		//while(USBSerial_read()!='\n');
+// 		unsigned int caps[4];
+// 		for(unsigned char i=0;i<4;i++) {
+// 			caps[i]=capacitance_read(i);
+// 		}
+// 		capacitance_read(0);
+		printf("%u\t%u\t%u\t%u\n",capacitance_read(3),capacitance_read(2),capacitance_read(1),capacitance_read(0));
+		
+		//printf("%02u:%02u:%02u\n",RTCHOUR,RTCMIN,RTCSEC);
 	}
 }

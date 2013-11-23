@@ -6,8 +6,7 @@ CXX = msp430-g++
 OBJDUMP = msp430-objdump
 SIZE = msp430-size
 MSPDEBUG = mspdebug
-CFLAGS = -Os -Wall -mmcu=msp430f5510
-#-I./USBSerial/
+CFLAGS = -g -Os -Wall -mmcu=msp430f5510 -I./USBSerial/
 FET = tilib
 GDB = msp430-gdb
 GDBTUI = $(GDB)tui
@@ -15,7 +14,7 @@ GDBTUI = $(GDB)tui
 OBJS=ws2811.o $(PROG).o
 
 all: $(PROG).elf  $(PROG).lst
-	#cd USBSerial; make
+	cd USBSerial; make
 	$(SIZE) $(PROG).elf
 
 .PHONY: all clean install mspdebug debug gdb tui ddd
@@ -55,3 +54,5 @@ tui: $(PROG).elf
  
 ddd: $(PROG).elf
 	ddd --debugger $(GDB) $(PROG).elf
+
+main.o: bitop.h calendar.h usb-cdc.h util.h ws2811.h capacitive_touch.h
