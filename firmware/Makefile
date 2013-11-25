@@ -13,6 +13,10 @@ GDBTUI = $(GDB)tui
 
 OBJS=ws2811.o $(PROG).o
 
+#include time it was compiled at
+DELAY=-d +6seconds
+CFLAGS+= -DCOMPILE_HOUR=`date +%H $(DELAY)` -DCOMPILE_MIN=`date +%M $(DELAY)` -DCOMPILE_SEC=`date +%S $(DELAY)`
+
 all: $(PROG).elf  $(PROG).lst
 	cd USBSerial; make
 	$(SIZE) $(PROG).elf

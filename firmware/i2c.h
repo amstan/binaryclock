@@ -6,10 +6,10 @@
 ///This version of the code does not support arbitration or clock stretching
 
 // Hardware-specific support functions that MUST be customized:
-#define I2C_SPEED 1000
+#define I2C_SPEED 100
 #define I2C_delay() __delay_cycles(I2C_SPEED)
 
-#define I2C_READ_HOLDOFF_DELAY 1000
+#define I2C_READ_HOLDOFF_DELAY 10
 #define I2C_READ_HOLDOFF() __delay_cycles(I2C_READ_HOLDOFF_DELAY)
 
 #define I2C_SLAVE_WRITE 0
@@ -51,9 +51,10 @@ void i2c_start_cond(void) {
 		// set SDA to 1
 		read_SDA();
 		I2C_delay();
-		while (read_SCL() == 0) {  // Clock stretching
-		// You should add timeout to this loop
-		}
+		read_SCL();
+// 		while (read_SCL() == 0) {  // Clock stretching
+// 		// You should add timeout to this loop
+// 		}
 		// Repeated start setup time, minimum 4.7us
 		I2C_delay();
 	}
@@ -72,9 +73,10 @@ void i2c_stop_cond(void) {
 	clear_SDA();
 	I2C_delay();
 	// Clock stretching
-	while (read_SCL() == 0) {
-		// add timeout to this loop.
-	}
+	read_SCL();
+// 	while (read_SCL() == 0) {
+// 		// add timeout to this loop.
+// 	}
 	// Stop bit setup time, minimum 4us
 	I2C_delay();
 	// SCL is high, set SDA from 0 to 1
@@ -93,9 +95,10 @@ void i2c_write_bit(bool bit) {
 		clear_SDA();
 	}
 	I2C_delay();
-	while (read_SCL() == 0) { // Clock stretching
-		// You should add timeout to this loop
-	}
+	read_SCL();
+// 	while (read_SCL() == 0) { // Clock stretching
+// 		// You should add timeout to this loop
+// 	}
 	// SCL is high, now data is valid
 	// If SDA is high, check that nobody else is driving SDA
 	if (bit && read_SDA() == 0) {
@@ -152,13 +155,9 @@ unsigned char i2c_read_byte(bool nack) {
 //Writes a register, returns 0 if successful
 bool i2c_write_register(unsigned char address, unsigned char reg, unsigned char data) {
 	i2c_start_cond();
-	printf("S");
 	i2c_write_byte_ex(address+I2C_SLAVE_WRITE);
-	printf("A");
 	i2c_write_byte_ex(reg);
-	printf("R");
 	i2c_write_byte_ex(data);
-	printf("D");
 	i2c_stop_cond();
 	return 0;
 }
