@@ -65,7 +65,8 @@ void chip_init(void) {
 
 #include "ws2811.h"
 
-uint8_t white[18*3];
+unsigned char glow=0;
+bool glow_rising=1;
 
 #include "calendar.h"
 #include "usb-cdc.h"
@@ -87,7 +88,7 @@ int main(void) {
 	#define n (led_count*3)
 	uint8_t dest[n];
 	uint8_t current[n];
-	uint8_t rainbow[n] = {
+	const uint8_t rainbow[n] = {
 		0x0c, 0x28, 0x0c,
 		0x28, 0x28, 0x0c,
 		0x28, 0x0c, 0x0c,
@@ -109,29 +110,6 @@ int main(void) {
 		0x00, 0x00, 0x04,
 		0x00, 0x04, 0x04,
 	};
-	uint8_t rainbow_noblue[n] = {
-		0x0c, 0x28, 0x04,
-		0x28, 0x28, 0x04,
-		0x28, 0x0c, 0x04,
-		0x28, 0x0c, 0x18,
-		0x0c, 0x0c, 0x18,
-		0x0c, 0x28, 0x18,
-		
-		0x00, 0x20, 0x00,
-		0x20, 0x20, 0x00,
-		0x20, 0x00, 0x00,
-		0x20, 0x00, 0x10,
-		0x00, 0x00, 0x10,
-		0x00, 0x20, 0x10,
-		
-		0x00, 0x04, 0x00,
-		0x04, 0x04, 0x00,
-		0x04, 0x00, 0x00,
-		0x04, 0x00, 0x01,
-		0x00, 0x00, 0x01,
-		0x00, 0x04, 0x01,
-	};
-	memset(white,0xff,18*3);
 	
 	unsigned char calib_cap[4];
 	for(unsigned char j=0;j<10;j++) {
@@ -145,8 +123,8 @@ int main(void) {
 	
 	char mode=3;
 	
-	bool pl[]={0,0,0,0};
-	bool pc[]={0,0,0,0};
+	bool pl[]={0,0,0,0}; //last button states
+	bool pc[]={0,0,0,0}; //current button states
 	
 	#define CLAMP(val,min,max) {if(val<min){val=min;};if(val>max){val=max;}}
 	
@@ -156,50 +134,36 @@ int main(void) {
 	RTCSEC=COMPILE_SEC;
 	#endif
 	
+	unsigned char adjrow=1;
+	
 	while(1) {
 		for(unsigned char i=0;i<4;i++) {
 			pc[i]=capacitance_read(i)>(calib_cap[i]+80);
-			if((pl[i]==0)&&(pc[i]==1)) {
+			#define PRESSED(button) ((pl[button]==0)&&(pc[button]==1))
+			#define RELEASED(button) ((pl[button]==0)&&(pc[button]==1))
+			if(PRESSED(i)) {
 				//printf("%d pressed.\n",i);
 			}
-			if((pl[i]==1)&&(pc[i]==0)) {
+			if(RELEASED(i)) {
 				//printf("%d released.\n",i);
-				if(i==3) {
-					if(mode!=2) {
+				if(i==LEFT) {
+					if(mode!=0) {
 						mode--;
 						if(mode==-1) mode=4;
 						//printf("Mode %d",mode);
 					}
 				}
-				if(i==0) {
-					mode++;
-					if(mode==5) mode=0;
-					//printf("Mode %d",mode);
+				if(i==RIGHT) {
+					if(mode!=4) {
+						mode++;
+						if(mode==5) mode=0;
+						//printf("Mode %d",mode);
+					}
 				}
 			}
 		}
 		switch(mode) {
-			case 0: //RGB leds rainbow
-				set_bit(P5OUT,PWR_EN);
-				for(unsigned int i=0;i<n;i++) {
-					if(current[i]>rainbow[i]) current[i]--;
-					if(current[i]<rainbow[i]) current[i]++;
-				}
-				write_ws2811_hs(current,n,1<<LED_DATA);
-				break;
-			case 1: //SMPSU off
-				clear_bit(P5OUT,PWR_EN);
-				for(unsigned int i=0;i<n;i++) {
-					if(current[i]>rainbow_noblue[i]) current[i]--;
-					if(current[i]<rainbow_noblue[i]) current[i]++;
-				}
-				//disable first pixel to know we're in smpsu off mode
-				current[0]=0;
-				current[1]=0;
-				current[2]=0;
-				write_ws2811_hs(current,n,1<<LED_DATA);
-				break;
-			case 2: //Capacitive touch demo
+			case 0: //Capacitive touch demo
 				set_bit(P5OUT,PWR_EN);
 				for(unsigned int i=0;i<18;i++) {
 					r=capacitance_read(3)-calib_cap[2];
@@ -216,7 +180,16 @@ int main(void) {
 				//printf("%d\t%d\t%d\t%d\n",capacitance_read(3),capacitance_read(2),capacitance_read(1),capacitance_read(0));
 				break;
 			
-			case 3: //light sensor demo
+			case 1: //RGB leds rainbow
+				set_bit(P5OUT,PWR_EN);
+				for(unsigned int i=0;i<n;i++) {
+					if(current[i]>rainbow[i]) current[i]--;
+					if(current[i]<rainbow[i]) current[i]++;
+				}
+				write_ws2811_hs(current,n,1<<LED_DATA);
+				break;
+			
+			case 2: //light sensor demo
 				clear_bit(P5OUT,PWR_EN);
 				taos_write_register(TAOS_ENABLE,TAOS_ENABLE_PON+TAOS_ENABLE_AEN);
 				taos_write_register(TAOS_ATIME,0xf8); //integration time
@@ -254,25 +227,63 @@ int main(void) {
 // 				printf("r%u\tc%u\tr%u\tg%u\tb%u\n",taos_read(TAOS_CLEAR),light_level,r,g,b);
 				break;
 			
-			case 4: //main clock
-				gettime(dest);
+			case 3: //main clock
+				gettime(dest,-1);
 				for(unsigned int i=0;i<n;i++) {
 					if(current[i]>dest[i]) current[i]--;
 					if(current[i]<dest[i]) current[i]++;
 				}
 				write_ws2811_hs(current,n,1<<LED_DATA);
 				break;
+			
+			case 4: //adj clock
+				gettime(current,adjrow);
+				
+				volatile unsigned char *tochange;
+				unsigned char maxvalue;
+				switch(adjrow) {
+					case 0: tochange=&RTCHOUR; maxvalue=24; break;
+					case 1: tochange=&RTCMIN; maxvalue=60; break;
+					case 2: tochange=&RTCSEC; maxvalue=60; break;
+				}
+				if(RELEASED(UP)) {
+					(*tochange)++;
+					if(*tochange>=maxvalue) {
+						*tochange=0;
+					}
+				}
+				if(RELEASED(DOWN)) {
+					(*tochange)--;
+					if(*tochange==0xFF) {
+						*tochange=maxvalue-1;
+					}
+				}
+				if(RELEASED(RIGHT)) {
+					adjrow++;
+					adjrow%=3;
+				}
+				
+				write_ws2811_hs(current,n,1<<LED_DATA);
+				break;
 		}
+		
+		if(glow_rising) {
+			glow++;
+			if(glow==0x20) {
+				glow_rising=0;
+			}
+		} else {
+			glow--;
+			if(glow==0x10) {
+				glow_rising=1;
+			}
+		}
+		
 		for(unsigned char i=0;i<4;i++) {
-			pl[i]=pc[i]; //save values
+			pl[i]=pc[i]; //save old touch values
 		}
 		
 		for(unsigned int i=0;i<30;i++)
 			__delay_cycles(6000);
-		
-// 		for(unsigned int i=0;i<100;i++) {
-// 			__delay_cycles(30000);
-// 		}
-		//while(USBSerial_read()!='\n');
 	}
 }
