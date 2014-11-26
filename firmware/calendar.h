@@ -34,9 +34,9 @@ void gettime(unsigned char *data) {
 		for (unsigned char inv_bit=0;inv_bit<6;inv_bit++) {
 			unsigned char led=row*6+inv_bit;
 			unsigned char bit=5-inv_bit;
-			data[led*3+R]=row_R*(test_bit(row_value,bit)*0x10+1);
-			data[led*3+G]=row_G*(test_bit(row_value,bit)*0x10+1);
-			data[led*3+B]=row_B*(test_bit(row_value,bit)*0x10+1);
+			data[led*3+R]=row_R*(test_bit(row_value,bit)*0x30+1);
+			data[led*3+G]=row_G*(test_bit(row_value,bit)*0x30+1);
+			data[led*3+B]=row_B*(test_bit(row_value,bit)*0x30+1);
 		}
 	}
 }

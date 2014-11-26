@@ -109,6 +109,28 @@ int main(void) {
 		0x00, 0x00, 0x04,
 		0x00, 0x04, 0x04,
 	};
+	uint8_t rainbow_noblue[n] = {
+		0x0c, 0x28, 0x04,
+		0x28, 0x28, 0x04,
+		0x28, 0x0c, 0x04,
+		0x28, 0x0c, 0x18,
+		0x0c, 0x0c, 0x18,
+		0x0c, 0x28, 0x18,
+		
+		0x00, 0x20, 0x00,
+		0x20, 0x20, 0x00,
+		0x20, 0x00, 0x00,
+		0x20, 0x00, 0x10,
+		0x00, 0x00, 0x10,
+		0x00, 0x20, 0x10,
+		
+		0x00, 0x04, 0x00,
+		0x04, 0x04, 0x00,
+		0x04, 0x00, 0x00,
+		0x04, 0x00, 0x01,
+		0x00, 0x00, 0x01,
+		0x00, 0x04, 0x01,
+	};
 	memset(white,0xff,18*3);
 	
 	unsigned char calib_cap[4];
@@ -121,7 +143,7 @@ int main(void) {
 	int r, g, b;
 	int light_level;
 	
-	char mode=4;
+	char mode=3;
 	
 	bool pl[]={0,0,0,0};
 	bool pc[]={0,0,0,0};
@@ -168,8 +190,8 @@ int main(void) {
 			case 1: //SMPSU off
 				clear_bit(P5OUT,PWR_EN);
 				for(unsigned int i=0;i<n;i++) {
-					if(current[i]>rainbow[i]) current[i]--;
-					if(current[i]<rainbow[i]) current[i]++;
+					if(current[i]>rainbow_noblue[i]) current[i]--;
+					if(current[i]<rainbow_noblue[i]) current[i]++;
 				}
 				//disable first pixel to know we're in smpsu off mode
 				current[0]=0;
@@ -195,16 +217,18 @@ int main(void) {
 				break;
 			
 			case 3: //light sensor demo
-				taos_write_register(TAOS_ATIME,0xf0); //integration time
+				clear_bit(P5OUT,PWR_EN);
+				taos_write_register(TAOS_ENABLE,TAOS_ENABLE_PON+TAOS_ENABLE_AEN);
+				taos_write_register(TAOS_ATIME,0xf8); //integration time
 				taos_write_register(TAOS_CONTROL,TAOS_GAIN_4X);
 				taos_enable(1);
 				
 				memset(current,0,18*3);
 				light_level=taos_read(TAOS_CLEAR);
 				CLAMP(light_level,0,255);
-				current[n-3]=light_level;
-				current[n-2]=light_level;
-				current[n-1]=light_level;
+				current[n-3]=(unsigned char)light_level;
+				current[n-2]=(unsigned char)light_level;
+				current[n-1]=(unsigned char)light_level;
 				
 				
 				r=taos_read(TAOS_RED);
@@ -213,18 +237,21 @@ int main(void) {
 				CLAMP(r,0,255);
 				CLAMP(g,0,255);
 				CLAMP(b,0,255);
-				current[n-6+R]=r;
-				current[n-6+G]=g;
-				current[n-6+B]=b;
+				current[n-6+R]=(unsigned char)r;
+				current[n-6+G]=(unsigned char)g;
+				current[n-6+B]=(unsigned char)b;
+				
+				current[n-21+R]=10;
+				current[n-21+G]=10;
+				current[n-21+B]=10;
 				
 				write_ws2811_hs(current,n,1<<LED_DATA);
 // 				if(!taos_detect()) {
-// // 					printf("Could not detect taos sensor!\n");
+// 					printf("Could not detect taos sensor!\n");
 // 				} else {
-// 			// 			printf("Found taos sensor!\n");
+// 						printf("Found taos sensor!\n");
 // 				}
-				//taos_write_register(TAOS_ENABLE,TAOS_ENABLE_PON+TAOS_ENABLE_AEN);
-// 				printf("c%u\tr%u\tg%u\tb%u\n",taos_read(TAOS_CLEAR),taos_read(TAOS_RED),taos_read(TAOS_GREEN),taos_read(TAOS_BLUE));
+// 				printf("r%u\tc%u\tr%u\tg%u\tb%u\n",taos_read(TAOS_CLEAR),light_level,r,g,b);
 				break;
 			
 			case 4: //main clock
@@ -240,7 +267,7 @@ int main(void) {
 			pl[i]=pc[i]; //save values
 		}
 		
-		for(unsigned int i=0;i<70;i++)
+		for(unsigned int i=0;i<30;i++)
 			__delay_cycles(6000);
 		
 // 		for(unsigned int i=0;i<100;i++) {
